@@ -1,8 +1,15 @@
-//
-//  APIHandler.swift
-//  Reciplease
-//
-//  Created by Kyllian GUILLOT on 07/12/2023.
-//
+
+protocol APICall {
+    func request()
+}
+
 
 import Foundation
+import Alamofire
+
+final class APIHandler: APICall {
+    
+    func request() {
+        print("Oui")
+    }
+}
