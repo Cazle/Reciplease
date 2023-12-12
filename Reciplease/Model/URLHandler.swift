@@ -1,18 +1,16 @@
 import Foundation
 
 final class URLHandler {
-    func URLRecipe(baseURL: URL) -> URL {
-        
-        let ingredientInStore = Ingredient()
+    func URLRecipe(of ingredient: [String]) {
         
         var components = URLComponents()
-        components.scheme = baseURL.scheme
-        components.host = baseURL.host
+        components.scheme = "https"
+        components.host = "api.edamam.com"
         components.path = "/api/recipes/v2"
         
         let paramaters: [String: Any] = [
             "type": "public",
-            "q": ingredientInStore.ingredients.joined(separator: ","),
+            "q": ingredient.joined(separator: "&"),
             "app_id": "cbfe9715",
             "app_key": "91e322d3c82707bcc618b8756198ac31"
         ]
@@ -23,6 +21,5 @@ final class URLHandler {
         } else {
             print("Rekt")
         }
-        return components.url!
     }
 }

@@ -29,7 +29,7 @@ final class SearchController: UIViewController {
     @IBAction func tapAdd(_ sender: Any) {
         guard let input = searchBarTextField.text else { return }
         ingredientStore.add(ingredient: input)
-        url.URLRecipe(baseURL: URL(string:  "https://api.edamam.com")!)
+        url.URLRecipe(of: ingredientStore.ingredients)
         tableView.reloadData()
     }
     @IBAction func tapClear(_ sender: Any) {
