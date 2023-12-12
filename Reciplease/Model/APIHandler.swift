@@ -10,6 +10,6 @@ import Alamofire
 final class APIHandler: APICall {
     
     func request() {
-        print("Oui")
+        
     }
 }

@@ -17,6 +17,7 @@
 		298CC0FB2B21D67F00F28F96 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CC0FA2B21D67F00F28F96 /* APIHandler.swift */; };
 		29A0788C2B231FC1005CFF54 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A0788B2B231FC1005CFF54 /* Ingredient.swift */; };
 		29A078902B271CCA005CFF54 /* IngredientViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A0788F2B271CCA005CFF54 /* IngredientViewCell.swift */; };
+		29A078922B289A0A005CFF54 /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078912B289A0A005CFF54 /* URLHandler.swift */; };
 		3E5BAFD9E1761EC0F76AF9B1 /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14976DF1E6F898688998A7BF /* Pods_Reciplease.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,8 +35,9 @@
 		298CC0FA2B21D67F00F28F96 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		29A0788B2B231FC1005CFF54 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		29A0788F2B271CCA005CFF54 /* IngredientViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewCell.swift; sourceTree = "<group>"; };
-		8A016F5C0FCA62A3731B0283 /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
-		BE79F1AA28F6058C11C1E3E4 /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
+		29A078912B289A0A005CFF54 /* URLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
+		4A3FBD257062C729AE3E32C9 /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
+		FB10A47EECC26D7CABC503F7 /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +65,8 @@
 			children = (
 				298CC0DD2B21BA0000F28F96 /* Reciplease */,
 				298CC0DC2B21BA0000F28F96 /* Products */,
-				2C3F7ABE530AE4227D69CEF6 /* Pods */,
 				218211AF78F4D16E9428E202 /* Frameworks */,
+				706CF51502C3456D52EBCB79 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +121,7 @@
 			children = (
 				298CC0FA2B21D67F00F28F96 /* APIHandler.swift */,
 				29A0788B2B231FC1005CFF54 /* Ingredient.swift */,
+				29A078912B289A0A005CFF54 /* URLHandler.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -134,11 +137,11 @@
 			path = "Additional Files";
 			sourceTree = "<group>";
 		};
-		2C3F7ABE530AE4227D69CEF6 /* Pods */ = {
+		706CF51502C3456D52EBCB79 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BE79F1AA28F6058C11C1E3E4 /* Pods-Reciplease.debug.xcconfig */,
-				8A016F5C0FCA62A3731B0283 /* Pods-Reciplease.release.xcconfig */,
+				4A3FBD257062C729AE3E32C9 /* Pods-Reciplease.debug.xcconfig */,
+				FB10A47EECC26D7CABC503F7 /* Pods-Reciplease.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -154,7 +157,7 @@
 				298CC0D72B21BA0000F28F96 /* Sources */,
 				298CC0D82B21BA0000F28F96 /* Frameworks */,
 				298CC0D92B21BA0000F28F96 /* Resources */,
-				A666F608251BD0E8A30D742C /* [CP] Embed Pods Frameworks */,
+				B4C0CF91619FD2F93F5FCC5E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -234,7 +237,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A666F608251BD0E8A30D742C /* [CP] Embed Pods Frameworks */ = {
+		B4C0CF91619FD2F93F5FCC5E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -262,6 +265,7 @@
 				29A078902B271CCA005CFF54 /* IngredientViewCell.swift in Sources */,
 				298CC0E32B21BA0000F28F96 /* SearchController.swift in Sources */,
 				29A0788C2B231FC1005CFF54 /* Ingredient.swift in Sources */,
+				29A078922B289A0A005CFF54 /* URLHandler.swift in Sources */,
 				298CC0FB2B21D67F00F28F96 /* APIHandler.swift in Sources */,
 				298CC0DF2B21BA0000F28F96 /* AppDelegate.swift in Sources */,
 				298CC0E12B21BA0000F28F96 /* SceneDelegate.swift in Sources */,
@@ -411,7 +415,7 @@
 		};
 		298CC0F32B21BA0100F28F96 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE79F1AA28F6058C11C1E3E4 /* Pods-Reciplease.debug.xcconfig */;
+			baseConfigurationReference = 4A3FBD257062C729AE3E32C9 /* Pods-Reciplease.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -439,7 +443,7 @@
 		};
 		298CC0F42B21BA0100F28F96 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A016F5C0FCA62A3731B0283 /* Pods-Reciplease.release.xcconfig */;
+			baseConfigurationReference = FB10A47EECC26D7CABC503F7 /* Pods-Reciplease.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

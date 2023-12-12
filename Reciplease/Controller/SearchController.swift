@@ -14,6 +14,9 @@ final class SearchController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let ingredientStore = Ingredient()
+    let url = URLHandler()
+    
+    
     
     let cellIdentifier = "IngredientCell"
     
@@ -26,6 +29,7 @@ final class SearchController: UIViewController {
     @IBAction func tapAdd(_ sender: Any) {
         guard let input = searchBarTextField.text else { return }
         ingredientStore.add(ingredient: input)
+        url.URLRecipe(baseURL: URL(string:  "https://api.edamam.com")!)
         tableView.reloadData()
     }
     @IBAction func tapClear(_ sender: Any) {
