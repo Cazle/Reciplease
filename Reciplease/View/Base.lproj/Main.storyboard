@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -65,7 +64,7 @@
                                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <action selector="TapAdd:" destination="Ba8-R6-dO2" eventType="touchUpInside" id="xqp-O1-cew"/>
+                                                            <action selector="tapAdd:" destination="Ba8-R6-dO2" eventType="touchUpInside" id="xqp-O1-cew"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -91,7 +90,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacingType="standard" id="Xeg-ip-3Hc">
+                                <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" id="Xeg-ip-3Hc">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="102"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -110,32 +109,35 @@
                                                 <color key="baseBackgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </buttonConfiguration>
                                             <connections>
-                                                <action selector="TapClear:" destination="Ba8-R6-dO2" eventType="touchUpInside" id="YLM-Fo-CAz"/>
+                                                <action selector="tapClear:" destination="Ba8-R6-dO2" eventType="touchUpInside" id="YLM-Fo-CAz"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </stackView>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredientCell" rowHeight="60" id="dzD-7W-Yp8" customClass="IngredientViewCell" customModule="Reciplease" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="152" width="393" height="60"/>
+                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredientCell" rowHeight="70" id="dzD-7W-Yp8" customClass="IngredientViewCell" customModule="Reciplease" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="152" width="393" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dzD-7W-Yp8" id="7yi-zR-lmH">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEW-Ai-dFA">
-                                                    <rect key="frame" x="30" y="11" width="343" height="38"/>
+                                                    <rect key="frame" x="20" y="0.0" width="56" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="bNn-jx-WFq"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="LEW-Ai-dFA" firstAttribute="trailing" secondItem="7yi-zR-lmH" secondAttribute="trailingMargin" id="GYD-XV-aVc"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="LEW-Ai-dFA" secondAttribute="bottom" id="OMw-uy-nSh"/>
-                                                <constraint firstItem="LEW-Ai-dFA" firstAttribute="top" secondItem="7yi-zR-lmH" secondAttribute="topMargin" id="VJ2-JI-TmD"/>
-                                                <constraint firstItem="LEW-Ai-dFA" firstAttribute="leading" secondItem="7yi-zR-lmH" secondAttribute="leadingMargin" constant="10" id="avc-wb-h8e"/>
+                                                <constraint firstAttribute="bottom" secondItem="LEW-Ai-dFA" secondAttribute="bottom" id="RDD-0U-Q5U"/>
+                                                <constraint firstItem="LEW-Ai-dFA" firstAttribute="top" secondItem="7yi-zR-lmH" secondAttribute="top" id="ciO-S9-uRh"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LEW-Ai-dFA" secondAttribute="trailing" constant="20" symbolic="YES" id="y9s-nF-4q7"/>
+                                                <constraint firstItem="LEW-Ai-dFA" firstAttribute="leading" secondItem="7yi-zR-lmH" secondAttribute="leading" constant="20" id="yr4-iG-lX0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -166,8 +168,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Reciplease" id="9nh-id-odz"/>
                     <connections>
-                        <outlet property="SearchBarTextField" destination="o8y-O2-P8y" id="7n0-fE-cde"/>
-                        <outlet property="TableView" destination="e7p-Pi-OaI" id="aEJ-Hb-aXk"/>
+                        <outlet property="searchBarTextField" destination="o8y-O2-P8y" id="7n0-fE-cde"/>
+                        <outlet property="tableView" destination="e7p-Pi-OaI" id="aEJ-Hb-aXk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7O3-zS-xqo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

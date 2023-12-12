@@ -10,45 +10,45 @@ import Alamofire
 
 final class SearchController: UIViewController {
     
-    @IBOutlet weak var SearchBarTextField: UITextField!
-    @IBOutlet weak var TableView: UITableView!
+    @IBOutlet weak var searchBarTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
     
-    let CellIdentifier = "IngredientCell"
+    let ingredientStore = Ingredient()
+    
+    let cellIdentifier = "IngredientCell"
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        TableView.dataSource = self
+        tableView.dataSource = self
     }
     
     
-    @IBAction func TapAdd(_ sender: Any) {
-        guard let input = SearchBarTextField.text else { return }
-        Ingredient.shared.add(ingredient: input)
-        TableView.reloadData()
+    @IBAction func tapAdd(_ sender: Any) {
+        guard let input = searchBarTextField.text else { return }
+        ingredientStore.add(ingredient: input)
+        tableView.reloadData()
     }
-    @IBAction func TapClear(_ sender: Any) {
-        Ingredient.shared.ListOfIngredients = []
-        TableView.reloadData()
+    @IBAction func tapClear(_ sender: Any) {
+        ingredientStore.ingredients = []
+        tableView.reloadData()
     }
     
 }
 
 extension SearchController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Ingredient.shared.ListOfIngredients.count
+        ingredientStore.ingredients.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier, for: indexPath) as? IngredientViewCell else {
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? IngredientViewCell else {
             return UITableViewCell()
         }
           
-        let ingredient = Ingredient.shared.ListOfIngredients[indexPath.row]
+        let ingredient = ingredientStore.ingredients[indexPath.row]
+    
+        cell.settingCell(ingredient: ingredient)
         
-        cell.IngredientNameLabel.text = "- " + ingredient
-
         return cell
     }
 }
