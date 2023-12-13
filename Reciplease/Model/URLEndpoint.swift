@@ -1,7 +1,7 @@
 import Foundation
 
-final class URLHandler {
-    func URLRecipe(of ingredient: [String]) {
+final class URLEndpoint {
+    func URLRecipe(of ingredient: [String]) -> URL {
         
         var components = URLComponents()
         components.scheme = "https"
@@ -16,10 +16,7 @@ final class URLHandler {
         ]
         components.queryItems = paramaters.map { URLQueryItem(name: $0.key, value: "\($0.value)")}
         
-        if let url = components.url {
-            print("Url is \(url)")
-        } else {
-            print("Rekt")
-        }
+       
+        return components.url!
     }
 }

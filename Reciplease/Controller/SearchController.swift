@@ -14,7 +14,7 @@ final class SearchController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let ingredientStore = Ingredient()
-    let url = URLHandler()
+    let apiHandler = APIHandler()
     
     
     
@@ -29,7 +29,7 @@ final class SearchController: UIViewController {
     @IBAction func tapAdd(_ sender: Any) {
         guard let input = searchBarTextField.text else { return }
         ingredientStore.add(ingredient: input)
-        url.URLRecipe(of: ingredientStore.ingredients)
+        print(apiHandler.request(storedIngredient: ingredientStore.ingredients))
         tableView.reloadData()
     }
     @IBAction func tapClear(_ sender: Any) {

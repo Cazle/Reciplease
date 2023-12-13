@@ -1,15 +1,19 @@
 
 protocol APICall {
-    func request()
+    func request(storedIngredient: [String])
 }
-
-
 import Foundation
 import Alamofire
 
 final class APIHandler: APICall {
     
-    func request() {
+    let urlEndpoint = URLEndpoint()
+    
+    func request(storedIngredient: [String]) {
         
+        let url = urlEndpoint.URLRecipe(of: storedIngredient)
+        AF.request(url, method: .get).response { response in
+            debugPrint(response)
+        }
     }
 }
