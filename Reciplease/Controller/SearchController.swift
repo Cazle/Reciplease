@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  Reciplease
-//
-//  Created by Kyllian GUILLOT on 07/12/2023.
-//
-
 import UIKit
 import Alamofire
 
@@ -15,8 +8,7 @@ final class SearchController: UIViewController {
     
     let ingredientStore = Ingredient()
     let apiHandler = APIHandler()
-    
-    
+    let urlEndpoint = URLEndpoint()
     
     let cellIdentifier = "IngredientCell"
     
@@ -29,7 +21,6 @@ final class SearchController: UIViewController {
     @IBAction func tapAdd(_ sender: Any) {
         guard let input = searchBarTextField.text else { return }
         ingredientStore.add(ingredient: input)
-        print(apiHandler.request(storedIngredient: ingredientStore.ingredients))
         tableView.reloadData()
     }
     @IBAction func tapClear(_ sender: Any) {
@@ -37,6 +28,10 @@ final class SearchController: UIViewController {
         tableView.reloadData()
     }
     
+    @IBAction func tapSearch(_ sender: Any) {
+        let url = urlEndpoint.URLRecipe(of: ingredientStore.ingredients)
+        apiHandler.request(url: url)
+    }
 }
 
 extension SearchController: UITableViewDataSource {
