@@ -1,6 +1,6 @@
 import Foundation
 
-final class Ingredient {
+final class IngredientStore {
     
     var ingredients: [String] = []
     

@@ -6,7 +6,7 @@ final class SearchController: UIViewController {
     @IBOutlet weak var searchBarTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    let ingredientStore = Ingredient()
+    let ingredientStore = IngredientStore()
     let apiHandler = APIHandler()
     let urlEndpoint = URLEndpoint()
     
@@ -29,8 +29,10 @@ final class SearchController: UIViewController {
     }
     
     @IBAction func tapSearch(_ sender: Any) {
-        let url = urlEndpoint.URLRecipe(of: ingredientStore.ingredients)
-        apiHandler.request(url: url)
+        let url = urlEndpoint.URLRecipe(with: ingredientStore.ingredients)
+        apiHandler.request(url: url) { result in
+            print(result, "ViewController")
+        }
     }
 }
 

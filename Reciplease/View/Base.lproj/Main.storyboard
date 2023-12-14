@@ -85,18 +85,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZaC-My-IoM">
-                                        <rect key="frame" x="20" y="29.333333333333311" width="353" height="34.666666666666657"/>
+                                        <rect key="frame" x="20" y="28.666666666666689" width="353" height="35.333333333333343"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your ingredients :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2O4-TR-GTA" userLabel="TableViewLabel">
-                                                <rect key="frame" x="0.0" y="6.3333333333333321" width="196" height="22"/>
+                                                <rect key="frame" x="0.0" y="4.9999999999999982" width="210.33333333333334" height="25.333333333333329"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="22"/>
+                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXG-pH-GSy">
-                                                <rect key="frame" x="289" y="0.33333333333337123" width="64" height="34.333333333333336"/>
+                                                <rect key="frame" x="289" y="0.66666666666662877" width="64" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Clear">
                                                     <color key="baseBackgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -130,20 +130,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEW-Ai-dFA">
-                                                    <rect key="frame" x="30" y="0.0" width="56" height="70"/>
+                                                    <rect key="frame" x="30.000000000000004" y="0.0" width="59.333333333333343" height="70"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="70" id="M87-Fq-Vf5"/>
+                                                        <constraint firstAttribute="height" constant="70" id="PVO-O6-G1h"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="LEW-Ai-dFA" firstAttribute="leading" secondItem="7yi-zR-lmH" secondAttribute="leading" constant="30" id="CPT-tT-KiS"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LEW-Ai-dFA" secondAttribute="trailing" constant="20" symbolic="YES" id="T1y-0g-qff"/>
-                                                <constraint firstAttribute="bottom" secondItem="LEW-Ai-dFA" secondAttribute="bottom" id="alJ-Rc-OgQ"/>
-                                                <constraint firstItem="LEW-Ai-dFA" firstAttribute="top" secondItem="7yi-zR-lmH" secondAttribute="top" id="fGb-81-2EA"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LEW-Ai-dFA" secondAttribute="trailing" constant="20" symbolic="YES" id="NUv-XQ-wsJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="LEW-Ai-dFA" secondAttribute="bottom" id="P5s-VV-77i"/>
+                                                <constraint firstItem="LEW-Ai-dFA" firstAttribute="leading" secondItem="7yi-zR-lmH" secondAttribute="leading" constant="30" id="PZK-FC-g0y"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -165,9 +164,12 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Search for recipes">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
+                                    <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="21"/>
                                     <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="tapSearch:" destination="Ba8-R6-dO2" eventType="touchUpInside" id="I9A-R2-lkN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PQc-8X-1zm"/>

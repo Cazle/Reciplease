@@ -15,7 +15,7 @@
 		298CC0EB2B21BA0100F28F96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 298CC0EA2B21BA0100F28F96 /* Assets.xcassets */; };
 		298CC0EE2B21BA0100F28F96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 298CC0EC2B21BA0100F28F96 /* LaunchScreen.storyboard */; };
 		298CC0FB2B21D67F00F28F96 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CC0FA2B21D67F00F28F96 /* APIHandler.swift */; };
-		29A0788C2B231FC1005CFF54 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A0788B2B231FC1005CFF54 /* Ingredient.swift */; };
+		29A0788C2B231FC1005CFF54 /* IngredientStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A0788B2B231FC1005CFF54 /* IngredientStore.swift */; };
 		29A078902B271CCA005CFF54 /* IngredientViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A0788F2B271CCA005CFF54 /* IngredientViewCell.swift */; };
 		29A078922B289A0A005CFF54 /* URLEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078912B289A0A005CFF54 /* URLEndpoint.swift */; };
 		29A078942B2A07C2005CFF54 /* APIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078932B2A07C2005CFF54 /* APIRequestModel.swift */; };
@@ -34,7 +34,7 @@
 		298CC0ED2B21BA0100F28F96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		298CC0EF2B21BA0100F28F96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		298CC0FA2B21D67F00F28F96 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
-		29A0788B2B231FC1005CFF54 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		29A0788B2B231FC1005CFF54 /* IngredientStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientStore.swift; sourceTree = "<group>"; };
 		29A0788F2B271CCA005CFF54 /* IngredientViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewCell.swift; sourceTree = "<group>"; };
 		29A078912B289A0A005CFF54 /* URLEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEndpoint.swift; sourceTree = "<group>"; };
 		29A078932B2A07C2005CFF54 /* APIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestModel.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				298CC0FA2B21D67F00F28F96 /* APIHandler.swift */,
-				29A0788B2B231FC1005CFF54 /* Ingredient.swift */,
+				29A0788B2B231FC1005CFF54 /* IngredientStore.swift */,
 				29A078912B289A0A005CFF54 /* URLEndpoint.swift */,
 				29A078932B2A07C2005CFF54 /* APIRequestModel.swift */,
 			);
@@ -267,7 +267,7 @@
 				298CC0E92B21BA0000F28F96 /* Reciplease.xcdatamodeld in Sources */,
 				29A078902B271CCA005CFF54 /* IngredientViewCell.swift in Sources */,
 				298CC0E32B21BA0000F28F96 /* SearchController.swift in Sources */,
-				29A0788C2B231FC1005CFF54 /* Ingredient.swift in Sources */,
+				29A0788C2B231FC1005CFF54 /* IngredientStore.swift in Sources */,
 				29A078922B289A0A005CFF54 /* URLEndpoint.swift in Sources */,
 				298CC0FB2B21D67F00F28F96 /* APIHandler.swift in Sources */,
 				29A078942B2A07C2005CFF54 /* APIRequestModel.swift in Sources */,

@@ -1,7 +1,7 @@
 import Foundation
 
 final class URLEndpoint {
-    func URLRecipe(of ingredient: [String]) -> URL {
+    func URLRecipe(with ingredient: [String]) -> URL {
         
         var components = URLComponents()
         components.scheme = "https"
