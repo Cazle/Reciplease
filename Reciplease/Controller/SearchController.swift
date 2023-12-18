@@ -31,7 +31,12 @@ final class SearchController: UIViewController {
     @IBAction func tapSearch(_ sender: Any) {
         let url = urlEndpoint.URLRecipe(with: ingredientStore.ingredients)
         apiHandler.request(url: url) { result in
-            print(result, "ViewController")
+            switch result {
+            case .success(_):
+                return
+            case .failure(_):
+                return
+            }
         }
     }
 }
@@ -45,8 +50,7 @@ extension SearchController: UITableViewDataSource {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? IngredientViewCell else {
             return UITableViewCell()
         }
-          
-        let ingredient = ingredientStore.ingredients[indexPath.row]
+          let ingredient = ingredientStore.ingredients[indexPath.row]
     
         cell.settingCell(ingredient: ingredient)
         
