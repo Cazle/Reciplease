@@ -22,6 +22,8 @@ final class SearchController: UIViewController {
         guard let input = searchBarTextField.text else { return }
         ingredientStore.add(ingredient: input)
         tableView.reloadData()
+        
+        // TODO: Handling user input
     }
     @IBAction func tapClear(_ sender: Any) {
         ingredientStore.ingredients = []
@@ -32,9 +34,12 @@ final class SearchController: UIViewController {
         let url = urlEndpoint.URLRecipe(with: ingredientStore.ingredients)
         apiHandler.request(url: url) { result in
             switch result {
-            case .success(_):
-                return
+            case .success(let data):
+                let recipe = data.hits[0]
+                
             case .failure(_):
+                
+                // TODO: Method to handle error
                 return
             }
         }

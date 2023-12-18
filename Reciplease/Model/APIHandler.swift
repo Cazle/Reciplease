@@ -12,12 +12,9 @@ final class APIHandler: APICall {
             print(response.result)
             switch response.result {
             case .success(let dataDecoded):
-                for hit in dataDecoded.hits {
-                    print(hit.recipe.url)
-                    print(hit.recipe.ingredientLines)
-                }
-            case .failure:
-                print("Oui")
+                completion(.success(dataDecoded))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }
