@@ -1,6 +1,6 @@
 import UIKit
 
-class IngredientViewCell: UITableViewCell {
+final class IngredientViewCell: UITableViewCell {
     
     @IBOutlet weak var IngredientNameLabel: UILabel!
     
