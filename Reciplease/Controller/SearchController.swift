@@ -12,7 +12,7 @@ final class SearchController: UIViewController {
     let urlEndpoint = URLEndpoint()
     var recipes = [Hit]()
     
-    let cellIdentifier = "IngredientCell"
+    let cellIdentifier = "ingredientCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,27 +33,24 @@ final class SearchController: UIViewController {
         self.errorLabel.isHidden = true
         let url = urlEndpoint.urlRecipe(with: ingredientStore.ingredients)
         apiHandler.request(url: url) { result in
-            switch result {
-            case .success(let data):
+            guard case let .success(data) = result else {
+                self.errorLabel.isHidden = false
+                return
+            }
                 self.recipes = data.hits
                 if self.recipes.isEmpty {
                     self.errorLabel.isHidden = false
                 } else {
                     self.performSegue(withIdentifier: "callSucceed", sender: self)
-                }
-            case .failure:
-                self.errorLabel.isHidden = false
-                return
             }
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "callSucceed") {
             let recipeController = (segue.destination as! RecipeListController)
-            recipeController.recipeFromRecipeList = recipes
+            recipeController.recipes = recipes
         }
     }
-    
 }
 
 extension SearchController: UITableViewDataSource {
@@ -65,10 +62,8 @@ extension SearchController: UITableViewDataSource {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? IngredientViewCell else {
             return UITableViewCell()
         }
-          let ingredient = ingredientStore.ingredients[indexPath.row]
-    
+        let ingredient = ingredientStore.ingredients[indexPath.row]
         cell.settingCell(ingredient: ingredient)
-        
         return cell
     }
 }

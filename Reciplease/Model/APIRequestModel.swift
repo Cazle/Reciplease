@@ -15,11 +15,22 @@ struct Recipe: Codable {
     let images: Images
     let url: String
     let ingredientLines: [String]
+    let ingredients: [Ingredients]
 }
 struct Images: Codable {
-    let THUMBNAIL: Thumbnail
-    let SMALL: Small
-    let REGULAR: Regular
+    let thumbnail: Thumbnail
+    let small: Small
+    let regular: Regular
+    
+    enum CodingKeys: String, CodingKey {
+        case thumbnail = "THUMBNAIL"
+        case small = "SMALL"
+        case regular = "REGULAR"
+    }
+}
+struct Ingredients: Codable {
+    let text: String
+    let food: String
 }
 struct Thumbnail: Codable {
     let url: String
