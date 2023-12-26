@@ -38,9 +38,9 @@ extension RecipeListController: UITableViewDataSource {
         let ingredients = getIngredients.map {$0.food}.joined(separator: ", ")
         
         cell.settingRecipeCell(name: name, ingredients: ingredients)
-        DispatchQueue.main.async {
-            cell.settingTheImage(url: image)
-        }
+        cell.settingTheImage(image: image)
+        cell.customizingTheCell()
+       
         
         return cell
     }

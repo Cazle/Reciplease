@@ -1,10 +1,11 @@
+import Foundation
+import Alamofire
+import AlamofireImage
+
 
 protocol APICall {
     func request(url: URL, completion: @escaping (Result<APIRequestModel, Error>) -> Void)
 }
-import Foundation
-import Alamofire
-
 
 final class APIHandler: APICall {
    
