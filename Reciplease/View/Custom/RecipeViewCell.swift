@@ -1,5 +1,6 @@
 import UIKit
 
+
 final class RecipeViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -7,20 +8,32 @@ final class RecipeViewCell: UITableViewCell {
     @IBOutlet weak var mealImageView: UIImageView!
     @IBOutlet weak var cellView: UIView!
     
-    func settingRecipeCell(name: String, ingredients: String) {
-        nameLabel.text = name
+    let imageHandler = ImageHandler()
+    
+    
+    func settingRecipeCell(recipe: Recipe) {
+        nameLabel.text = recipe.label
+        
+        let getIngredients = recipe.ingredients
+        let ingredients = getIngredients.map {$0.food}.joined(separator: ", ")
         ingredientLabel.text = ingredients
+        
+        guard let urlImage = URL(string: recipe.image) else {
+            return
+        }
+        imageHandler.requestImage(url: urlImage) {response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success (let data):
+                    guard let image = UIImage(data: data) else {
+                        return
+                    }
+                    self.mealImageView.image = image
+                case .failure:
+                    self.mealImageView.image = nil
+                }
+            }
+        }
     }
-    func settingTheImage(image: String) {
-        guard let urlImage = URL(string: image) else {return}
-        self.mealImageView.af.setImage(withURL: urlImage)
-    }
-    func customizingTheCell() {
-        mealImageView.layer.masksToBounds = false
-        mealImageView.backgroundColor = .clear
-        mealImageView.layer.shadowColor = UIColor.black.cgColor
-        mealImageView.layer.shadowOffset = CGSize(width: 10, height: 10)
-        mealImageView.layer.opacity = 1
-        mealImageView.layer.shadowRadius = 5
-    }
+    
 }

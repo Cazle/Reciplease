@@ -32,23 +32,24 @@ final class SearchController: UIViewController {
     @IBAction func tapSearch(_ sender: Any) {
         self.errorLabel.isHidden = true
         let url = urlEndpoint.urlRecipe(with: ingredientStore.ingredients)
-        apiHandler.request(url: url) { result in
+        apiHandler.request(url: url) { [weak self] result in
             guard case let .success(data) = result else {
-                self.errorLabel.isHidden = false
+                self?.errorLabel.isHidden = false
                 return
             }
-                self.recipes = data.hits
-                if self.recipes.isEmpty {
-                    self.errorLabel.isHidden = false
-                } else {
-                    self.performSegue(withIdentifier: "callSucceed", sender: self)
+            self?.recipes = data.hits
+            if data.hits.isEmpty {
+                self?.errorLabel.isHidden = false
+            } else {
+                self?.performSegue(withIdentifier: "searchToRecipe", sender: self)
             }
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "callSucceed") {
-            let recipeController = (segue.destination as! RecipeListController)
-            recipeController.recipes = recipes
+        if(segue.identifier == "searchToRecipe") {
+            if let recipeController = (segue.destination as? RecipeListController) {
+                recipeController.recipes = recipes
+            }
         }
     }
 }

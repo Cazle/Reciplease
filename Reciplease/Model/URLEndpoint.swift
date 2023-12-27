@@ -10,7 +10,7 @@ final class URLEndpoint {
         
         let paramaters: [String: Any] = [
             "type": "public",
-            "q": ingredient.joined(separator: "%"),
+            "q": ingredient.joined(separator: ","),
             "app_id": "cbfe9715",
             "app_key": "91e322d3c82707bcc618b8756198ac31"
         ]

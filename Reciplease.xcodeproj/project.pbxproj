@@ -22,6 +22,7 @@
 		29A078962B32F085005CFF54 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078952B32F085005CFF54 /* APIError.swift */; };
 		29A078982B334E98005CFF54 /* RecipeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078972B334E98005CFF54 /* RecipeListController.swift */; };
 		29A0789C2B3454CA005CFF54 /* RecipeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A0789B2B3454CA005CFF54 /* RecipeViewCell.swift */; };
+		29A078A22B3C6382005CFF54 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078A12B3C6382005CFF54 /* ImageHandler.swift */; };
 		3E5BAFD9E1761EC0F76AF9B1 /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14976DF1E6F898688998A7BF /* Pods_Reciplease.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		29A078952B32F085005CFF54 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		29A078972B334E98005CFF54 /* RecipeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListController.swift; sourceTree = "<group>"; };
 		29A0789B2B3454CA005CFF54 /* RecipeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewCell.swift; sourceTree = "<group>"; };
+		29A078A12B3C6382005CFF54 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
 		4A3FBD257062C729AE3E32C9 /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
 		FB10A47EECC26D7CABC503F7 /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +135,7 @@
 				29A078912B289A0A005CFF54 /* URLEndpoint.swift */,
 				29A078932B2A07C2005CFF54 /* APIRequestModel.swift */,
 				29A078952B32F085005CFF54 /* APIError.swift */,
+				29A078A12B3C6382005CFF54 /* ImageHandler.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				29A078982B334E98005CFF54 /* RecipeListController.swift in Sources */,
 				298CC0E32B21BA0000F28F96 /* SearchController.swift in Sources */,
 				29A078962B32F085005CFF54 /* APIError.swift in Sources */,
+				29A078A22B3C6382005CFF54 /* ImageHandler.swift in Sources */,
 				29A0788C2B231FC1005CFF54 /* IngredientStore.swift in Sources */,
 				29A078922B289A0A005CFF54 /* URLEndpoint.swift in Sources */,
 				298CC0FB2B21D67F00F28F96 /* APIHandler.swift in Sources */,

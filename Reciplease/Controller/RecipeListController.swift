@@ -30,18 +30,10 @@ extension RecipeListController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifer, for: indexPath) as? RecipeViewCell else {
             return UITableViewCell()
         }
-        let recipes = recipes[indexPath.row]
-        let name = recipes.recipe.label
-        let image = recipes.recipe.image
+        let recipe = recipes[indexPath.row].recipe
         
-        let getIngredients = recipes.recipe.ingredients
-        let ingredients = getIngredients.map {$0.food}.joined(separator: ", ")
-        
-        cell.settingRecipeCell(name: name, ingredients: ingredients)
-        cell.settingTheImage(image: image)
-        cell.customizingTheCell()
+        cell.settingRecipeCell(recipe: recipe)
        
-        
         return cell
     }
 }
