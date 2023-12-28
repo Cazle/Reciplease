@@ -8,7 +8,7 @@ final class SearchController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
     let ingredientStore = IngredientStore()
-    let apiHandler = APIHandler()
+    let recipeHandler = RecipeCall()
     let urlEndpoint = URLEndpoint()
     var recipes = [Hit]()
     
@@ -32,16 +32,17 @@ final class SearchController: UIViewController {
     @IBAction func tapSearch(_ sender: Any) {
         self.errorLabel.isHidden = true
         let url = urlEndpoint.urlRecipe(with: ingredientStore.ingredients)
-        apiHandler.request(url: url) { [weak self] result in
-            guard case let .success(data) = result else {
+        recipeHandler.requestRecipe(url: url) {[weak self] response in
+            switch response {
+            case .success(let data):
+                self?.recipes = data.hits
+                if data.hits.isEmpty {
+                    self?.errorLabel.isHidden = false
+                } else {
+                    self?.performSegue(withIdentifier: "searchToRecipe", sender: self)
+                }
+            case .failure:
                 self?.errorLabel.isHidden = false
-                return
-            }
-            self?.recipes = data.hits
-            if data.hits.isEmpty {
-                self?.errorLabel.isHidden = false
-            } else {
-                self?.performSegue(withIdentifier: "searchToRecipe", sender: self)
             }
         }
     }

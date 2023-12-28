@@ -18,7 +18,9 @@ final class RecipeViewCell: UITableViewCell {
         let ingredients = getIngredients.map {$0.food}.joined(separator: ", ")
         ingredientLabel.text = ingredients
         
-        guard let urlImage = URL(string: recipe.image) else {
+        let regularImage = recipe.images.regular.url
+        
+        guard let urlImage = URL(string: regularImage) else {
             return
         }
         imageHandler.requestImage(url: urlImage) {response in
@@ -35,5 +37,4 @@ final class RecipeViewCell: UITableViewCell {
             }
         }
     }
-    
 }

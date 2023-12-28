@@ -232,8 +232,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b75-cS-2bn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="143"/>
                                                     <color key="backgroundColor" red="0.67450982329999998" green="0.4196078479" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="140" id="CtX-0b-Qlq"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vNh-ID-fMY">
                                                     <rect key="frame" x="20" y="91" width="303" height="48"/>
@@ -253,15 +256,16 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="vNh-ID-fMY" secondAttribute="bottom" id="AJh-yD-S8K"/>
                                                 <constraint firstItem="b75-cS-2bn" firstAttribute="top" secondItem="g3I-Kz-Dg8" secondAttribute="top" id="JZR-yY-vsm"/>
                                                 <constraint firstAttribute="trailing" secondItem="b75-cS-2bn" secondAttribute="trailing" id="Ph7-RX-6pD"/>
                                                 <constraint firstItem="vNh-ID-fMY" firstAttribute="top" secondItem="g3I-Kz-Dg8" secondAttribute="topMargin" constant="80" id="SCw-a0-KzL"/>
+                                                <constraint firstAttribute="bottom" secondItem="b75-cS-2bn" secondAttribute="bottom" constant="7" id="ZDJ-t6-Apq"/>
                                                 <constraint firstItem="vNh-ID-fMY" firstAttribute="leading" secondItem="g3I-Kz-Dg8" secondAttribute="leadingMargin" id="bxd-2k-GJ0"/>
                                                 <constraint firstItem="b75-cS-2bn" firstAttribute="leading" secondItem="g3I-Kz-Dg8" secondAttribute="leading" id="rU3-YU-81C"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="vNh-ID-fMY" secondAttribute="trailing" constant="50" id="vfS-3s-KJ9"/>
-                                                <constraint firstAttribute="bottom" secondItem="b75-cS-2bn" secondAttribute="bottom" id="zLY-Om-3yR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

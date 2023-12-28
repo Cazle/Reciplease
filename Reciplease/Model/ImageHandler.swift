@@ -1,13 +1,15 @@
 import Foundation
 
-final class ImageHandler {
+protocol ImageCall {
+    func requestImage(url: URL, completion: @escaping (Result<Data, Error>) -> Void)
+}
+
+final class ImageHandler: ImageCall {
     
     enum RequestError: Error {
-        case invalidResponse
         case invalidData
         case errorOccured
     }
-    
     func requestImage(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
         URLSession.shared.dataTask(with: url) {data, response, error in
             guard let data = data else {

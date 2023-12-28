@@ -7,4 +7,3 @@ enum APIError: Error {
     case invalidStatusCode
     case invalidData
 }
-
