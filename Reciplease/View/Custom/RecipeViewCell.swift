@@ -1,15 +1,17 @@
 import UIKit
 
-
 final class RecipeViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ingredientLabel: UILabel!
     @IBOutlet weak var mealImageView: UIImageView!
-    @IBOutlet weak var cellView: UIView!
     
     let imageHandler = ImageHandler()
+    let identifier = "recipeCustomCell"
     
+    func nib() -> UINib {
+        return UINib(nibName: "RecipeViewCell", bundle: nil)
+    }
     
     func settingRecipeCell(recipe: Recipe) {
         nameLabel.text = recipe.label

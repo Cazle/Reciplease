@@ -3,15 +3,15 @@ import UIKit
 
 final class RecipeListController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var barNavigation: UINavigationItem!
-    
-    var cellIdentifer = "recipeCell"
     
     var recipes = [Hit]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         backButton()
+        tableView.register(RecipeViewCell().nib(), forCellReuseIdentifier: RecipeViewCell().identifier)
     }
     func backButton() {
         let leftButton = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(tapBackButton))
@@ -27,7 +27,7 @@ extension RecipeListController: UITableViewDataSource {
         recipes.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifer, for: indexPath) as? RecipeViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RecipeViewCell().identifier, for: indexPath) as? RecipeViewCell else {
             return UITableViewCell()
         }
         let recipe = recipes[indexPath.row].recipe
