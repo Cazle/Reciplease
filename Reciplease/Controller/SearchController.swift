@@ -22,6 +22,7 @@ final class SearchController: UIViewController {
     @IBAction func tapAdd(_ sender: Any) {
         guard let input = searchBarTextField.text else { return }
         ingredientStore.add(ingredient: input)
+        searchBarTextField.text = ""
         tableView.reloadData()
     }
     @IBAction func tapClear(_ sender: Any) {

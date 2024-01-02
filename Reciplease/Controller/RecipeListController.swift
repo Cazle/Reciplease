@@ -20,9 +20,23 @@ final class RecipeListController: UIViewController {
     @objc func tapBackButton() {
         navigationController?.popViewController(animated: true)
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard
+            segue.identifier == "recipeToDescription",
+            let selectedIndexPath = tableView.indexPathForSelectedRow,
+            let descriptionController = segue.destination as? DescriptionViewController 
+        else {
+            return
+        }
+        let selectedRecipe = recipes[selectedIndexPath.row]
+        descriptionController.receivedRecipe = [selectedRecipe]
+        }
 }
 
-extension RecipeListController: UITableViewDataSource {
+extension RecipeListController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "recipeToDescription", sender: self)
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         recipes.count
     }
