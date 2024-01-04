@@ -7,6 +7,7 @@ final class RecipeListController: UIViewController {
     @IBOutlet weak var barNavigation: UINavigationItem!
     
     var recipes = [Hit]()
+    var selectedRecipe: Recipe?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,18 +24,17 @@ final class RecipeListController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard
             segue.identifier == "recipeToDescription",
-            let selectedIndexPath = tableView.indexPathForSelectedRow,
             let descriptionController = segue.destination as? DescriptionViewController 
         else {
             return
         }
-        let selectedRecipe = recipes[selectedIndexPath.row]
-        descriptionController.receivedRecipe = [selectedRecipe]
+        descriptionController.receivedRecipe = selectedRecipe
         }
 }
 
 extension RecipeListController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRecipe = recipes[indexPath.row].recipe
         performSegue(withIdentifier: "recipeToDescription", sender: self)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

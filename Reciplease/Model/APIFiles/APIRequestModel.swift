@@ -1,7 +1,5 @@
 import Foundation
 
-import Foundation
-
 // MARK: - Welcome3
 struct APIRequestModel: Codable {
     let hits: [Hit]
@@ -16,6 +14,8 @@ struct Recipe: Codable {
     let url: String
     let ingredientLines: [String]
     let ingredients: [Ingredients]
+    let calories: Double
+    let totalTime: Int?
 }
 struct Images: Codable {
     let thumbnail: Thumbnail

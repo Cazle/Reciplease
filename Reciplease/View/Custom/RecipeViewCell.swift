@@ -8,25 +8,33 @@ final class RecipeViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var mealImageView: UIImageView!
     
-    let imageHandler = ImageHandler()
     let identifier = "recipeCustomCell"
+    let apiHandler = APIHandler()
     
     func nib() -> UINib {
         return UINib(nibName: "RecipeViewCell", bundle: nil)
     }
     
     func settingRecipeCell(recipe: Recipe) {
-        settingLikesAndTime()
+        settingLikes(recipe: recipe)
         settingImageView(recipe: recipe)
         settingNameAndIngredients(recipe: recipe)
+        settingTime(recipe: recipe)
     }
-    private func settingLikesAndTime() {
-        let randomLikes = [" 120 👍", " 135 👍", " 1,5k 👍", " 335 👍", 
-                           " 1,3k 👍", " 2,9k 👍", " 13 👍", " 3,7k 👍"]
-        let randomTimeCook = ["20m ⏱️", "1h15 ⏱️", "45min ⏱️", "35m ⏱️",
-                              "50mm ⏱️", "10m ⏱️", "2h ⏱️", "1h30 ⏱️"]
-        likesLabel.text = randomLikes.randomElement()
-        timeLabel.text = randomTimeCook.randomElement()
+    private func settingLikes(recipe: Recipe) {
+        let getLikes = recipe.calories
+        let likes = String(format: "%.0f", getLikes)
+        likesLabel.text = likes + " 👍"
+    }
+    private func settingTime(recipe: Recipe) {
+        guard let cookingTime = recipe.totalTime else {
+            return
+        }
+        if cookingTime == 0 {
+            return timeLabel.text = ""
+        }
+        let time = String(cookingTime)
+        timeLabel.text = time + " ⏱️"
     }
     
     private func settingImageView(recipe: Recipe) {
@@ -34,21 +42,17 @@ final class RecipeViewCell: UITableViewCell {
         guard let urlImage = URL(string: regularImage) else {
             return
         }
-        imageHandler.requestImage(url: urlImage) {response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success (let data):
-                    guard let image = UIImage(data: data) else {
-                        return
-                    }
-                    self.mealImageView.image = image
-                case .failure:
-                    self.mealImageView.image = nil
-                }
+        apiHandler.request(url: urlImage) {response in
+            switch response {
+            case let .success((data, _)):
+                let image = UIImage(data: data)
+                self.mealImageView.image = image
+            case .failure:
+                self.mealImageView.image = nil
             }
         }
     }
-    func settingNameAndIngredients(recipe: Recipe) {
+    private func settingNameAndIngredients(recipe: Recipe) {
         nameLabel.text = recipe.label
         
         let getIngredients = recipe.ingredients

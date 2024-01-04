@@ -5,8 +5,10 @@ final class DescriptionViewCell: UITableViewCell {
     
     @IBOutlet weak var ingredientLabel: UILabel!
     
-    func settingCell(ingredient: [String]) {
-        ingredientLabel.text = "- " + ingredient.joined()
+    func settingCell(ingredient: String) {
+        ingredientLabel.text = "- " + ingredient
     }
-    
+    func errorCalled(error: String) {
+        ingredientLabel.text = error
+    }
 }

@@ -8,13 +8,12 @@ final class DescriptionViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     
     
-    var receivedRecipe = [Hit]()
+    var receivedRecipe: Recipe?
     
     let cellIdentifier = "descriptionCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(receivedRecipe, "JE SUIS LE DESCRIPTION CONTROLLER")
     }
     func settingImage() {
         
@@ -24,15 +23,23 @@ final class DescriptionViewController: UIViewController {
 extension DescriptionViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        receivedRecipe.count
+        guard let ingredient = receivedRecipe?.ingredientLines else {
+            return 0
+        }
+        return ingredient.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? DescriptionViewCell else {
             return UITableViewCell()
         }
-        let recipe = receivedRecipe[indexPath.row].recipe
-        let ingredients = recipe.ingredientLines
-        cell.settingCell(ingredient: ingredients)
+        
+        guard let ingredientList = receivedRecipe?.ingredientLines else {
+            cell.errorCalled(error: "Something went wrong.")
+            return cell
+        }
+        let allIngredients = ingredientList[indexPath.row]
+        cell.settingCell(ingredient: allIngredients)
         
         return cell
     }
