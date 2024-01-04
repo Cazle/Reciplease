@@ -9,6 +9,7 @@ final class RecipeListController: UIViewController {
     var recipes = [Hit]()
     var selectedRecipe: Recipe?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         backButton()
@@ -45,7 +46,6 @@ extension RecipeListController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         let recipe = recipes[indexPath.row].recipe
-        
         cell.settingRecipeCell(recipe: recipe)
        
         return cell

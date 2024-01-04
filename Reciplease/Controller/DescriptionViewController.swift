@@ -14,6 +14,7 @@ final class DescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
     func settingImage() {
         
