@@ -98,7 +98,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="gradientView" destination="rwM-M4-FZO" id="N9k-di-0OC"/>
                 <outlet property="ingredientLabel" destination="BML-Hm-tPe" id="1vl-13-xgf"/>
                 <outlet property="likesLabel" destination="Nkm-PO-5nA" id="s06-Ud-001"/>
                 <outlet property="mealImageView" destination="hPG-Xb-b4l" id="XwR-A0-Ndu"/>

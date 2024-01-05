@@ -23,14 +23,9 @@ final class RecipeListController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard
-            segue.identifier == "recipeToDescription",
-            let descriptionController = segue.destination as? DescriptionViewController 
-        else {
-            return
-        }
+        guard segue.identifier == "recipeToDescription", let descriptionController = segue.destination as? DescriptionViewController else { return }
         descriptionController.receivedRecipe = selectedRecipe
-        }
+    }
 }
 
 extension RecipeListController: UITableViewDataSource, UITableViewDelegate {
@@ -47,7 +42,7 @@ extension RecipeListController: UITableViewDataSource, UITableViewDelegate {
         }
         let recipe = recipes[indexPath.row].recipe
         cell.settingRecipeCell(recipe: recipe)
-       
+        
         return cell
     }
 }

@@ -62,7 +62,7 @@ extension SearchController: UITableViewDataSource {
         ingredientStore.ingredients.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? IngredientViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? IngredientViewCell else {
             return UITableViewCell()
         }
         let ingredient = ingredientStore.ingredients[indexPath.row]

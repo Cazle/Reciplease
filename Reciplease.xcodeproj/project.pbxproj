@@ -28,6 +28,7 @@
 		29A078C52B3DDEF0005CFF54 /* RecipeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29A078C32B3DDEF0005CFF54 /* RecipeViewCell.xib */; };
 		29A078C92B440D30005CFF54 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078C82B440D30005CFF54 /* DescriptionViewController.swift */; };
 		29A078CD2B441B9A005CFF54 /* DescriptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078CC2B441B9A005CFF54 /* DescriptionViewCell.swift */; };
+		29A078D12B4842E3005CFF54 /* FormatAndTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078D02B4842E3005CFF54 /* FormatAndTime.swift */; };
 		3E5BAFD9E1761EC0F76AF9B1 /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14976DF1E6F898688998A7BF /* Pods_Reciplease.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		29A078C32B3DDEF0005CFF54 /* RecipeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeViewCell.xib; sourceTree = "<group>"; };
 		29A078C82B440D30005CFF54 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		29A078CC2B441B9A005CFF54 /* DescriptionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewCell.swift; sourceTree = "<group>"; };
+		29A078D02B4842E3005CFF54 /* FormatAndTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatAndTime.swift; sourceTree = "<group>"; };
 		4A3FBD257062C729AE3E32C9 /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
 		FB10A47EECC26D7CABC503F7 /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +165,7 @@
 			children = (
 				29A078B82B3D98E8005CFF54 /* APIFiles */,
 				29A0788B2B231FC1005CFF54 /* IngredientStore.swift */,
+				29A078D02B4842E3005CFF54 /* FormatAndTime.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				29A078962B32F085005CFF54 /* APIError.swift in Sources */,
 				29A078C42B3DDEF0005CFF54 /* RecipeViewCell.swift in Sources */,
 				29A078C92B440D30005CFF54 /* DescriptionViewController.swift in Sources */,
+				29A078D12B4842E3005CFF54 /* FormatAndTime.swift in Sources */,
 				29A0788C2B231FC1005CFF54 /* IngredientStore.swift in Sources */,
 				29A078922B289A0A005CFF54 /* URLEndpoint.swift in Sources */,
 				298CC0FB2B21D67F00F28F96 /* APIHandler.swift in Sources */,
