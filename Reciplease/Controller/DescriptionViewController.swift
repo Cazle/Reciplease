@@ -7,6 +7,8 @@ final class DescriptionViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var mealImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var recipeWebsiteButton: UIButton!
+    
     
     let apiHandler = APIHandler()
     let formatAndTime = FormatAndTime()
@@ -19,6 +21,15 @@ final class DescriptionViewController: UIViewController {
         settingImage()
         settingLikes()
         settingTime()
+    }
+    @IBAction func goToRecipeWebSite(_ sender: Any) {
+        guard let receivedUrl = receivedRecipe?.url else {
+            return
+        }
+        guard let url = URL(string: receivedUrl) else {
+            return
+        }
+        UIApplication.shared.open(url)
     }
     func settingName() {
         nameLabel.text = receivedRecipe?.label
