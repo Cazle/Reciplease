@@ -10,14 +10,12 @@ final class DescriptionViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var recipeWebsiteButton: UIButton!
     @IBOutlet weak var starButton: UIBarButtonItem!
-    
-    
+
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     let apiHandler = APIHandler()
     let formatAndTime = FormatAndTime()
     var receivedRecipe: Recipe?
-    var recipesStored: [RecipeData]?
     
     let cellIdentifier = "descriptionCell"
     
@@ -31,32 +29,7 @@ final class DescriptionViewController: UIViewController {
     }
     
     @IBAction func handlingStoredRecipe(_ sender: Any) {
-        guard let likes = receivedRecipe?.calories, 
-                let name = receivedRecipe?.label,
-                let time = receivedRecipe?.totalTime,
-                let ingredientsLines = receivedRecipe?.ingredientLines,
-                let ingredients = receivedRecipe?.ingredients,
-                let urlImage = receivedRecipe?.images.regular.url,
-                let url = receivedRecipe?.url else {
-            return
-        }
-        let newRecipe = RecipeData(context: context)
-        newRecipe.likes = likes
-        newRecipe.name = name
-        newRecipe.time = Int32(time)
-        newRecipe.ingredientLines = ingredientsLines
-        newRecipe.ingredients = ingredients.map {$0.food}
-        newRecipe.urlImage = urlImage
-        newRecipe.url = url
         
-        do {
-            print(newRecipe)
-            try context.save()
-            setStarIcon()
-        } catch {
-            print("Something went wrong")
-            print("Error saving recipe to CoreData: \(error.localizedDescription)")
-        }
     }
     
     

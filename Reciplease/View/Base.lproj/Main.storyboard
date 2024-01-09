@@ -211,59 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7O3-zS-xqo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056" y="-437"/>
-        </scene>
-        <!--Reciplease-->
-        <scene sceneID="wSr-jV-16W">
-            <objects>
-                <tableViewController id="k0o-pl-XEs" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="F4W-lf-0ts">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCustomCell" id="Ozm-hE-RHt">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ozm-hE-RHt" id="5uA-fR-zsw">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="k0o-pl-XEs" id="dSt-dK-l4a"/>
-                            <outlet property="delegate" destination="k0o-pl-XEs" id="Iua-Bk-6v5"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Reciplease" id="KW7-cO-t8G"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uPB-ah-RoG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1034" y="480"/>
-        </scene>
-        <!--Reciplease-->
-        <scene sceneID="Fbo-Fh-ysl">
-            <objects>
-                <navigationController id="clB-cX-hy0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" id="4of-aW-Ups"/>
-                    <navigationItem key="navigationItem" title="Reciplease" id="nAe-SW-FEG"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3FB-7A-X1J">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="21"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="k0o-pl-XEs" kind="relationship" relationship="rootViewController" id="96X-bq-UmL"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k5M-NG-zmj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="131" y="480"/>
+            <point key="canvasLocation" x="1111" y="-235"/>
         </scene>
         <!--Reciplease-->
         <scene sceneID="g8H-HW-XtV">
@@ -408,7 +356,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="M5L-FF-em7">
-                                                <rect key="frame" x="0.0" y="58" width="393" height="195"/>
+                                                <rect key="frame" x="0.0" y="51" width="393" height="202"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
@@ -463,9 +411,6 @@
                                                     </attributedString>
                                                     <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                                 </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="goToRecipeWebSite:" destination="BKb-yw-Poz" eventType="touchUpInside" id="gAY-Uf-fvl"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -474,7 +419,7 @@
                                             <constraint firstAttribute="trailing" secondItem="M5L-FF-em7" secondAttribute="trailing" id="5CL-8o-rLg"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zdT-4c-Qkz" secondAttribute="trailing" constant="20" symbolic="YES" id="BQ6-41-xTI"/>
                                             <constraint firstItem="zdT-4c-Qkz" firstAttribute="leading" secondItem="sxd-aH-ZNs" secondAttribute="leading" constant="30" id="JFw-Hu-Jlb"/>
-                                            <constraint firstItem="M5L-FF-em7" firstAttribute="top" secondItem="zdT-4c-Qkz" secondAttribute="bottom" constant="15" id="Qei-Vu-hR3"/>
+                                            <constraint firstItem="M5L-FF-em7" firstAttribute="top" secondItem="zdT-4c-Qkz" secondAttribute="bottom" constant="8" id="Qei-Vu-hR3"/>
                                             <constraint firstItem="zdT-4c-Qkz" firstAttribute="top" secondItem="sxd-aH-ZNs" secondAttribute="top" constant="15" id="ZT6-pb-OB9"/>
                                             <constraint firstItem="M5L-FF-em7" firstAttribute="leading" secondItem="sxd-aH-ZNs" secondAttribute="leading" id="dZS-DG-uvI"/>
                                             <constraint firstItem="B8Z-4G-9O4" firstAttribute="leading" relation="lessThanOrEqual" secondItem="sxd-aH-ZNs" secondAttribute="leading" constant="40" id="fpw-f0-RPI"/>
@@ -520,31 +465,21 @@
         <!--Reciplease-->
         <scene sceneID="wSp-9g-IJn">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="h4D-MD-rOS" customClass="TabBarController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="h4D-MD-rOS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Reciplease" id="0NN-cM-CXX"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="fill" id="UX1-Gk-L6N">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UX1-Gk-L6N">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
-                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="hAp-j7-kcu" kind="relationship" relationship="viewControllers" id="1dS-zm-Wm8"/>
-                        <segue destination="clB-cX-hy0" kind="relationship" relationship="viewControllers" id="1Ma-DO-SD1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xCT-AU-QNA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-821" y="262"/>
+            <point key="canvasLocation" x="-847" y="-235"/>
         </scene>
     </scenes>
     <resources>
