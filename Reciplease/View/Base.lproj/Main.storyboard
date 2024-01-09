@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -494,12 +495,21 @@
                             <constraint firstItem="FK6-Cd-foV" firstAttribute="top" secondItem="GRH-Xy-n8n" secondAttribute="top" id="q6y-kW-z00"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Reciplease" id="IaG-WT-aFL"/>
+                    <navigationItem key="navigationItem" title="Reciplease" id="IaG-WT-aFL">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="ig2-C6-Duj">
+                            <imageReference key="image" image="star" catalog="system" symbolScale="large"/>
+                            <color key="tintColor" systemColor="systemGreenColor"/>
+                            <connections>
+                                <action selector="handlingStoredRecipe:" destination="BKb-yw-Poz" id="Wv8-Tj-CeY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="likesLabel" destination="bjR-O5-oot" id="cSk-Or-kLq"/>
                         <outlet property="mealImageView" destination="I5O-7D-XtH" id="abj-1T-jKt"/>
                         <outlet property="nameLabel" destination="EQE-yr-VJq" id="y1C-fT-gdB"/>
                         <outlet property="recipeWebsiteButton" destination="B8Z-4G-9O4" id="LAN-nG-g2a"/>
+                        <outlet property="starButton" destination="ig2-C6-Duj" id="xTr-Dc-lor"/>
                         <outlet property="timeLabel" destination="NWD-hQ-kBM" id="UaY-hh-uGb"/>
                     </connections>
                 </viewController>
@@ -538,6 +548,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

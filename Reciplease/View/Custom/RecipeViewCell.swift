@@ -24,7 +24,7 @@ final class RecipeViewCell: UITableViewCell {
     }
     private func settingLikes(recipe: Recipe) {
         let getLikes = recipe.calories
-        likesLabel.text = formatAndTime.formattingLikes(getLikes) + " 👍"
+        likesLabel.text = formatAndTime.formattingLikes(getLikes)
         
     }
     private func settingTime(recipe: Recipe) {

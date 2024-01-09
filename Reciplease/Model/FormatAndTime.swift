@@ -8,10 +8,10 @@ final class FormatAndTime {
         
         if number < 1000 {
             let convertIntoInt = Int(number)
-            return formatter.string(from: NSNumber(value: convertIntoInt)) ?? ""
+            return "\(formatter.string(from: NSNumber(value: convertIntoInt)) ?? "") 👍"
         } else {
             let formatedNumber = number / 1000.0
-            return "\(formatter.string(from: NSNumber(value: formatedNumber)) ?? "")k"
+            return "\(formatter.string(from: NSNumber(value: formatedNumber)) ?? "")k 👍"
         }
     }
     private func minutesToHoursAndMinutes(_ minutes: Int) -> (hours: Int , leftMinutes: Int) {
