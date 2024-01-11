@@ -2,7 +2,12 @@ import Foundation
 import Alamofire
 
 final class RecipeCall {
-    let apiHandler = APIHandler()
+    
+    let apiHandler: APIHandler
+    
+    init(apiHandler: APIHandler = APIHandler()) {
+        self.apiHandler = apiHandler
+    }
     
     func requestRecipe(url: URL, completion: @escaping (Result<APIRequestModel, Error>) -> Void) {
         apiHandler.request(url: url) {response in

@@ -13,7 +13,7 @@ final class RecipeListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         backButton()
-        tableView.register(RecipeViewCell().nib(), forCellReuseIdentifier: RecipeViewCell().identifier)
+        tableView.register(RecipeViewCell().nibRecipeViewCell(), forCellReuseIdentifier: RecipeViewCell().identifier)
     }
     func backButton() {
         let leftButton = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(tapBackButton))

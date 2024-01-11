@@ -7,4 +7,11 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:Reciplease/Model/../../CoreDataModel"
+      name = "CoreDataModel">
+      <FileRef
+         location = "group:CoreDataModel/CoreDataManager.swift">
+      </FileRef>
+   </Group>
 </Workspace>

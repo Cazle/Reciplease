@@ -20,6 +20,7 @@ final class CoreDataManager {
             newRecipe.ingredientLines = ingredientLines
             newRecipe.ingredients = ingredients
             newRecipe.url = url
+            
         }
         return newRecipe
     }

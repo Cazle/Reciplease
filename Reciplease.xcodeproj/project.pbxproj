@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		294094792B4D87FB00F01372 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294094782B4D87FB00F01372 /* CoreDataManager.swift */; };
+		2940947B2B4FFA0400F01372 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2940947A2B4FFA0400F01372 /* TabBarController.swift */; };
+		2940947D2B5000D100F01372 /* FavoriteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2940947C2B5000D100F01372 /* FavoriteListController.swift */; };
 		298CC0DF2B21BA0000F28F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CC0DE2B21BA0000F28F96 /* AppDelegate.swift */; };
 		298CC0E12B21BA0000F28F96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CC0E02B21BA0000F28F96 /* SceneDelegate.swift */; };
 		298CC0E32B21BA0000F28F96 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CC0E22B21BA0000F28F96 /* SearchController.swift */; };
@@ -44,6 +47,9 @@
 
 /* Begin PBXFileReference section */
 		14976DF1E6F898688998A7BF /* Pods_Reciplease.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reciplease.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		294094782B4D87FB00F01372 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		2940947A2B4FFA0400F01372 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		2940947C2B5000D100F01372 /* FavoriteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListController.swift; sourceTree = "<group>"; };
 		298CC0DB2B21BA0000F28F96 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		298CC0DE2B21BA0000F28F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		298CC0E02B21BA0000F28F96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +104,15 @@
 				14976DF1E6F898688998A7BF /* Pods_Reciplease.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		294094772B4D874F00F01372 /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				294094782B4D87FB00F01372 /* CoreDataManager.swift */,
+			);
+			name = CoreDataModel;
+			path = ../../CoreDataModel;
 			sourceTree = "<group>";
 		};
 		298CC0D22B21BA0000F28F96 = {
@@ -156,6 +171,8 @@
 				298CC0E22B21BA0000F28F96 /* SearchController.swift */,
 				29A078972B334E98005CFF54 /* RecipeListController.swift */,
 				29A078C82B440D30005CFF54 /* DescriptionViewController.swift */,
+				2940947A2B4FFA0400F01372 /* TabBarController.swift */,
+				2940947C2B5000D100F01372 /* FavoriteListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -163,6 +180,7 @@
 		298CC0F82B21D31000F28F96 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				294094772B4D874F00F01372 /* CoreDataModel */,
 				29A078B82B3D98E8005CFF54 /* APIFiles */,
 				29A0788B2B231FC1005CFF54 /* IngredientStore.swift */,
 				29A078D02B4842E3005CFF54 /* FormatAndTime.swift */,
@@ -371,7 +389,9 @@
 				298CC0E92B21BA0000F28F96 /* Reciplease.xcdatamodeld in Sources */,
 				29A078B72B3D95CD005CFF54 /* RecipeCall.swift in Sources */,
 				29A078902B271CCA005CFF54 /* IngredientViewCell.swift in Sources */,
+				2940947B2B4FFA0400F01372 /* TabBarController.swift in Sources */,
 				29A078CD2B441B9A005CFF54 /* DescriptionViewCell.swift in Sources */,
+				294094792B4D87FB00F01372 /* CoreDataManager.swift in Sources */,
 				29A078982B334E98005CFF54 /* RecipeListController.swift in Sources */,
 				298CC0E32B21BA0000F28F96 /* SearchController.swift in Sources */,
 				29A078962B32F085005CFF54 /* APIError.swift in Sources */,
@@ -382,6 +402,7 @@
 				29A078922B289A0A005CFF54 /* URLEndpoint.swift in Sources */,
 				298CC0FB2B21D67F00F28F96 /* APIHandler.swift in Sources */,
 				29A078942B2A07C2005CFF54 /* APIRequestModel.swift in Sources */,
+				2940947D2B5000D100F01372 /* FavoriteListController.swift in Sources */,
 				298CC0DF2B21BA0000F28F96 /* AppDelegate.swift in Sources */,
 				298CC0E12B21BA0000F28F96 /* SceneDelegate.swift in Sources */,
 			);

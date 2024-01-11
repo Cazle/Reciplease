@@ -11,11 +11,13 @@ final class DescriptionViewController: UIViewController {
     @IBOutlet weak var recipeWebsiteButton: UIButton!
     @IBOutlet weak var starButton: UIBarButtonItem!
 
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = (UIApplication.shared.delegate as! AppDelegate).backgroundContext
     
     let apiHandler = APIHandler()
     let formatAndTime = FormatAndTime()
     var receivedRecipe: Recipe?
+    var storedRecipes: [RecipeEntity]?
+    lazy var coreDataManager = CoreDataManager(context: context)
     
     let cellIdentifier = "descriptionCell"
     
@@ -24,23 +26,34 @@ final class DescriptionViewController: UIViewController {
         settingImage()
         settingLikes()
         settingTime()
-        setStarIcon()
-        
+        setStarIcon(to: "star")
     }
     
     @IBAction func handlingStoredRecipe(_ sender: Any) {
+        guard let recipe = receivedRecipe else {
+            return
+        }
+        let newRecipe = coreDataManager.addingNewRecipe(
+            recipe: recipe,
+            name: recipe.label,
+            calories: recipe.calories,
+            time: recipe.totalTime,
+            url: recipe.url,
+            urlImage: recipe.images.regular.url,
+            ingredients: recipe.ingredients.map{$0.food},
+            ingredientLines: recipe.ingredientLines)
         
+        do {
+            try context.save()
+            setStarIcon(to: "star.fill")
+        } catch {
+            print("Something when wrong")
+        }
     }
     
     
-    func setStarIcon() {
-        let star = UIImage(systemName: "star")
-        let starFilled = UIImage(systemName: "star.fill")
-        if starButton.image == star {
-            starButton.image = starFilled
-        } else {
-            starButton.image = star
-        }
+    func setStarIcon(to named: String) {
+        starButton.image = UIImage(systemName: named)
     }
     @IBAction func goToRecipeWebSite(_ sender: Any) {
         guard let receivedUrl = receivedRecipe?.url else {
