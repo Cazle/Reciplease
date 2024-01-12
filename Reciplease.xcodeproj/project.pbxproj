@@ -10,6 +10,8 @@
 		294094792B4D87FB00F01372 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294094782B4D87FB00F01372 /* CoreDataManager.swift */; };
 		2940947B2B4FFA0400F01372 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2940947A2B4FFA0400F01372 /* TabBarController.swift */; };
 		2940947D2B5000D100F01372 /* FavoriteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2940947C2B5000D100F01372 /* FavoriteListController.swift */; };
+		294094832B513D0700F01372 /* FavoriteDescriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294094822B513D0700F01372 /* FavoriteDescriptionController.swift */; };
+		294094852B51492500F01372 /* DescriptionFavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294094842B51492500F01372 /* DescriptionFavoriteViewCell.swift */; };
 		298CC0DF2B21BA0000F28F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CC0DE2B21BA0000F28F96 /* AppDelegate.swift */; };
 		298CC0E12B21BA0000F28F96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CC0E02B21BA0000F28F96 /* SceneDelegate.swift */; };
 		298CC0E32B21BA0000F28F96 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CC0E22B21BA0000F28F96 /* SearchController.swift */; };
@@ -50,6 +52,8 @@
 		294094782B4D87FB00F01372 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		2940947A2B4FFA0400F01372 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		2940947C2B5000D100F01372 /* FavoriteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListController.swift; sourceTree = "<group>"; };
+		294094822B513D0700F01372 /* FavoriteDescriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDescriptionController.swift; sourceTree = "<group>"; };
+		294094842B51492500F01372 /* DescriptionFavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionFavoriteViewCell.swift; sourceTree = "<group>"; };
 		298CC0DB2B21BA0000F28F96 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		298CC0DE2B21BA0000F28F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		298CC0E02B21BA0000F28F96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 				29A078C82B440D30005CFF54 /* DescriptionViewController.swift */,
 				2940947A2B4FFA0400F01372 /* TabBarController.swift */,
 				2940947C2B5000D100F01372 /* FavoriteListController.swift */,
+				294094822B513D0700F01372 /* FavoriteDescriptionController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 				29A0788F2B271CCA005CFF54 /* IngredientViewCell.swift */,
 				29A078C22B3DDEF0005CFF54 /* RecipeViewCell.swift */,
 				29A078CC2B441B9A005CFF54 /* DescriptionViewCell.swift */,
+				294094842B51492500F01372 /* DescriptionFavoriteViewCell.swift */,
 				29A078C32B3DDEF0005CFF54 /* RecipeViewCell.xib */,
 			);
 			path = Custom;
@@ -396,8 +402,10 @@
 				298CC0E32B21BA0000F28F96 /* SearchController.swift in Sources */,
 				29A078962B32F085005CFF54 /* APIError.swift in Sources */,
 				29A078C42B3DDEF0005CFF54 /* RecipeViewCell.swift in Sources */,
+				294094832B513D0700F01372 /* FavoriteDescriptionController.swift in Sources */,
 				29A078C92B440D30005CFF54 /* DescriptionViewController.swift in Sources */,
 				29A078D12B4842E3005CFF54 /* FormatAndTime.swift in Sources */,
+				294094852B51492500F01372 /* DescriptionFavoriteViewCell.swift in Sources */,
 				29A0788C2B231FC1005CFF54 /* IngredientStore.swift in Sources */,
 				29A078922B289A0A005CFF54 /* URLEndpoint.swift in Sources */,
 				298CC0FB2B21D67F00F28F96 /* APIHandler.swift in Sources */,

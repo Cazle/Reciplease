@@ -4,15 +4,9 @@ final class FormatAndTime {
     func formattingLikes(_ number: Double) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 1
+        formatter.maximumFractionDigits = 0
         
-        if number < 1000 {
-            let convertIntoInt = Int(number)
-            return "\(formatter.string(from: NSNumber(value: convertIntoInt)) ?? "") 👍"
-        } else {
-            let formatedNumber = number / 1000.0
-            return "\(formatter.string(from: NSNumber(value: formatedNumber)) ?? "")k 👍"
-        }
+        return "\(formatter.string(from: NSNumber(value: number)) ?? "") Cal"
     }
     private func minutesToHoursAndMinutes(_ minutes: Int) -> (hours: Int , leftMinutes: Int) {
         return (minutes / 60, (minutes % 60))

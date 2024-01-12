@@ -6,12 +6,11 @@ final class FavoriteListController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var storedRecipes: [RecipeEntity]?
+    var recipeToSend: RecipeEntity?
     let context = (UIApplication.shared.delegate as! AppDelegate).backgroundContext
     let recipeViewCell = RecipeViewCell()
    
     override func viewDidLoad() {
-         print("Oui")
-       
         tableView.register(recipeViewCell.nibRecipeViewCell(), forCellReuseIdentifier: recipeViewCell.identifier)
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -27,8 +26,21 @@ final class FavoriteListController: UIViewController {
             print("Faiiling retriving data")
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "favoriteToDescription", let descriptionController = segue.destination as? FavoriteDescriptionController else { return }
+        descriptionController.selectedRecipe = recipeToSend
+    }
 }
 extension FavoriteListController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let selectedRecipe = storedRecipes else {
+            return
+        }
+        recipeToSend = selectedRecipe[indexPath.row]
+        performSegue(withIdentifier: "favoriteToDescription", sender: self)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let recipes = storedRecipes else {
             return 0
@@ -47,17 +59,14 @@ extension FavoriteListController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .destructive, title: "Delete") {action, view, completionHandler in
+        let action = UIContextualAction(style: .destructive, title: "Delete") {context, view, completionHandler in
             guard let recipes = self.storedRecipes else {
                 return
             }
             let recipeToRemove = recipes[indexPath.row]
             self.context.delete(recipeToRemove)
-            print("Preparing to remove the recipe")
             do {
-                print("Trying to remove the recipe")
                  try self.context.save()
-                print("Deletion done !")
             } catch {
                 print("error")
             }

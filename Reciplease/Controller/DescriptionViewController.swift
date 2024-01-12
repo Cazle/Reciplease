@@ -8,7 +8,6 @@ final class DescriptionViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var mealImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var recipeWebsiteButton: UIButton!
     @IBOutlet weak var starButton: UIBarButtonItem!
 
     let context = (UIApplication.shared.delegate as! AppDelegate).backgroundContext
