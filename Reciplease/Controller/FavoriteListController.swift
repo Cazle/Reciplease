@@ -9,6 +9,7 @@ final class FavoriteListController: UIViewController {
     var recipeToSend: RecipeEntity?
     let context = (UIApplication.shared.delegate as! AppDelegate).backgroundContext
     let recipeViewCell = RecipeViewCell()
+    lazy var coreDataManager = CoreDataManager(context: context)
    
     override func viewDidLoad() {
         tableView.register(recipeViewCell.nibRecipeViewCell(), forCellReuseIdentifier: recipeViewCell.identifier)
@@ -17,13 +18,11 @@ final class FavoriteListController: UIViewController {
         fetchRecipes()
     }
     func fetchRecipes() {
-        do {
-            self.storedRecipes = try context.fetch(RecipeEntity.fetchRequest())
+        coreDataManager.fetchRecipes { recipes in
+            self.storedRecipes = recipes
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-        } catch {
-            print("Faiiling retriving data")
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

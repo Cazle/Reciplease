@@ -5,6 +5,7 @@ final class CoreDataManager {
     
     let context: NSManagedObjectContext
     
+    
     init(context: NSManagedObjectContext) {
         self.context = context
     }
@@ -24,4 +25,15 @@ final class CoreDataManager {
         }
         return newRecipe
     }
+    func fetchRecipes(completion: @escaping ([RecipeEntity]?) -> Void) {
+            do {
+                let recipes = try context.fetch(RecipeEntity.fetchRequest()) as? [RecipeEntity]
+                completion(recipes)
+            } catch {
+                print("Failed retrieving data: \(error)")
+                completion(nil)
+            }
+        }
+    
 }
+

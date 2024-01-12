@@ -9,7 +9,9 @@ final class DescriptionViewController: UIViewController {
     @IBOutlet weak var mealImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var starButton: UIBarButtonItem!
-
+    @IBOutlet weak var warningLabel: UILabel!
+    
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).backgroundContext
     
     let apiHandler = APIHandler()
@@ -21,6 +23,7 @@ final class DescriptionViewController: UIViewController {
     let cellIdentifier = "descriptionCell"
     
     override func viewDidLoad() {
+        fetchingRecipe()
         settingName()
         settingImage()
         settingLikes()
@@ -28,11 +31,30 @@ final class DescriptionViewController: UIViewController {
         setStarIcon(to: "star")
     }
     
+    func fetchingRecipe() {
+        coreDataManager.fetchRecipes { recipes in
+            self.storedRecipes = recipes
+        }
+    }
+    
     @IBAction func handlingStoredRecipe(_ sender: Any) {
+        guard let stored = storedRecipes else { return }
+        guard let nameOfRecipe = receivedRecipe?.label else { return }
+        let nameStored = stored.map {$0.name}
+        
+        if nameStored.contains(nameOfRecipe) {
+            warningLabel.text = "THIS RECIPE IS ALREADY IN THE FAVORITES !"
+            warningLabel.isHidden = false
+        } else {
+            addRecipe()
+        }
+    }
+    
+    func addRecipe() {
         guard let recipe = receivedRecipe else {
             return
         }
-        let newRecipe = coreDataManager.addingNewRecipe(
+        let _ = coreDataManager.addingNewRecipe(
             recipe: recipe,
             name: recipe.label,
             calories: recipe.calories,
@@ -45,6 +67,7 @@ final class DescriptionViewController: UIViewController {
         do {
             try context.save()
             setStarIcon(to: "star.fill")
+            
         } catch {
             print("Something when wrong")
         }

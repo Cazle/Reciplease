@@ -39,6 +39,16 @@ final class FavoriteDescriptionController: UIViewController {
             }
         }
     }
+    
+    @IBAction func goToRecipeWebsite(_ sender: Any) {
+        guard let receivedUrl = selectedRecipe?.url else {
+            return
+        }
+        guard let url = URL(string: receivedUrl) else {
+            return
+        }
+        UIApplication.shared.open(url)
+    }
 }
 
 extension FavoriteDescriptionController: UITableViewDelegate, UITableViewDataSource {
