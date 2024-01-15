@@ -34,6 +34,13 @@ final class CoreDataManager {
                 completion(nil)
             }
         }
-    
+    func deletingRecipe(deleting: RecipeEntity) {
+        self.context.delete(deleting)
+        do {
+            try self.context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
 

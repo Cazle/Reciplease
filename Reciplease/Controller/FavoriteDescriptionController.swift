@@ -14,6 +14,8 @@ final class FavoriteDescriptionController: UIViewController {
     var selectedRecipe: RecipeEntity?
     let formatAndTime = FormatAndTime()
     let apiHandler = APIHandler()
+    let context = (UIApplication.shared.delegate as! AppDelegate).backgroundContext
+    lazy var coreDataManager = CoreDataManager(context: context)
     
     override func viewDidLoad() {
        settingDescription()
@@ -38,6 +40,13 @@ final class FavoriteDescriptionController: UIViewController {
                 print("Image favorite not loaded")
             }
         }
+    }
+    @IBAction func deletingRecipe(_ sender: Any) {
+        guard let recipeToDelete = selectedRecipe else {
+            return
+        }
+        coreDataManager.deletingRecipe(deleting: recipeToDelete)
+        performSegue(withIdentifier: "descriptionToListFavorites", sender: self)
     }
     
     @IBAction func goToRecipeWebsite(_ sender: Any) {

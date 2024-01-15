@@ -24,13 +24,23 @@ final class DescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         fetchingRecipe()
+        checkingIfAlreadyInFavorites()
         settingName()
         settingImage()
         settingLikes()
         settingTime()
-        setStarIcon(to: "star")
     }
-    
+    func checkingIfAlreadyInFavorites() {
+        guard let stored = storedRecipes else { return }
+        guard let nameOfRecipe = receivedRecipe?.label else { return }
+        let nameStored = stored.map {$0.name}
+        
+        if nameStored.contains(nameOfRecipe) {
+            setStarIcon(to: "star.fill")
+        } else {
+            setStarIcon(to: "star")
+        }
+    }
     func fetchingRecipe() {
         coreDataManager.fetchRecipes { recipes in
             self.storedRecipes = recipes
@@ -47,6 +57,7 @@ final class DescriptionViewController: UIViewController {
             warningLabel.isHidden = false
         } else {
             addRecipe()
+            fetchingRecipe()
         }
     }
     
