@@ -8,12 +8,18 @@ final class RecipeListController: UIViewController {
     
     var recipes = [Hit]()
     var selectedRecipe: Recipe?
+    var nextLink: Next?
+    var isLoading = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         backButton()
         tableView.register(RecipeViewCell().nibRecipeViewCell(), forCellReuseIdentifier: RecipeViewCell().identifier)
+        guard let next = nextLink else {
+            return
+        }
+        print(next)
     }
     func backButton() {
         let leftButton = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(tapBackButton))
@@ -26,6 +32,11 @@ final class RecipeListController: UIViewController {
         guard segue.identifier == "recipeToDescription", let descriptionController = segue.destination as? DescriptionViewController else { return }
         descriptionController.receivedRecipe = selectedRecipe
     }
+    
+    func fetchDataForNewCells(url: String) {
+        isLoading = true
+    }
+    
 }
 
 extension RecipeListController: UITableViewDataSource, UITableViewDelegate {

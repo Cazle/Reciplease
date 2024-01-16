@@ -80,7 +80,7 @@ final class DescriptionViewController: UIViewController {
             setStarIcon(to: "star.fill")
             
         } catch {
-            print("Something when wrong")
+            print("Something went wrong")
         }
     }
     

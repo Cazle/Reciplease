@@ -491,6 +491,9 @@
                                                     </attributedString>
                                                     <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="goToRecipeWebSite:" destination="BKb-yw-Poz" eventType="touchUpInside" id="d03-cN-Wkf"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -37,6 +37,8 @@ final class SearchController: UIViewController {
             switch response {
             case .success(let data):
                 self?.recipes = data.hits
+                print(data.links.next.href)
+                print(data.links.next.title)
                 if data.hits.isEmpty {
                     self?.errorLabel.isHidden = false
                 } else {
