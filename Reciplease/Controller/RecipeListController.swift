@@ -53,6 +53,7 @@ extension RecipeListController: UITableViewDataSource, UITableViewDelegate {
             decodingCall.requestRecipe(url: url) {response in
                 switch response {
                 case let .success(newHit):
+                    self.nextLink = newHit.links.next
                     self.recipes.append(contentsOf: newHit.hits)
                     self.tableView.reloadData()
                 case .failure(let error):
