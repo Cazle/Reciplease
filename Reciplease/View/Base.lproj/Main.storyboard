@@ -240,11 +240,11 @@
             <objects>
                 <viewController id="G5v-Wf-QZ0" customClass="FavoriteListController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Xg-Kp-F0B">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hQ8-Pq-Mro">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -281,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dOn-dz-OxH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="985" y="239"/>
+            <point key="canvasLocation" x="1068" y="239"/>
         </scene>
         <!--Reciplease-->
         <scene sceneID="g8H-HW-XtV">
@@ -578,17 +578,17 @@
             <objects>
                 <viewController id="Art-CE-hUf" customClass="FavoriteDescriptionController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6UD-nJ-XAd">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kNv-OK-QKO">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umy-yr-CR4">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="421"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="333"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jpl-Cd-oYc">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="421"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="333"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45U-3F-oQ8">
                                                 <rect key="frame" x="273" y="20" width="100" height="60"/>
@@ -623,7 +623,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0S2-A5-GXV">
-                                                <rect key="frame" x="0.0" y="371" width="393" height="50"/>
+                                                <rect key="frame" x="0.0" y="283" width="393" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4q5-uj-fUn">
                                                         <rect key="frame" x="0.0" y="10" width="393" height="30"/>
@@ -658,7 +658,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frH-LZ-q21">
-                                        <rect key="frame" x="0.0" y="421" width="393" height="421"/>
+                                        <rect key="frame" x="0.0" y="333" width="393" height="333"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="5WX-bb-Hdz">
                                                 <rect key="frame" x="30" y="15" width="147" height="28"/>
@@ -667,7 +667,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EWb-hy-6ye">
-                                                <rect key="frame" x="0.0" y="61" width="393" height="280"/>
+                                                <rect key="frame" x="0.0" y="61" width="393" height="192"/>
                                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="sectionIndexBackgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
@@ -707,7 +707,7 @@
                                                 </connections>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhd-1S-ROI">
-                                                <rect key="frame" x="40" y="351" width="313" height="60"/>
+                                                <rect key="frame" x="40" y="263" width="313" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="RcM-pm-7Yl"/>
                                                 </constraints>
@@ -768,7 +768,6 @@
                         <outlet property="nameLabel" destination="4q5-uj-fUn" id="f19-xY-Kw0"/>
                         <outlet property="starButton" destination="QLG-CV-Idd" id="WNf-h9-NFo"/>
                         <outlet property="timeLabel" destination="01K-f1-xjA" id="shw-lM-mY5"/>
-                        <segue destination="G5v-Wf-QZ0" kind="show" identifier="descriptionToListFavorites" id="Ya9-c6-hKI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yuc-3s-iWz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -776,9 +775,6 @@
             <point key="canvasLocation" x="2067.93893129771" y="238.73239436619718"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Ya9-c6-hKI"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>

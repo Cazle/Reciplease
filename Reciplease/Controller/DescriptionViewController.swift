@@ -23,36 +23,35 @@ final class DescriptionViewController: UIViewController {
     let cellIdentifier = "descriptionCell"
     
     override func viewDidLoad() {
-        fetchingRecipe()
-        checkingIfAlreadyInFavorites()
         settingName()
         settingImage()
         settingLikes()
         settingTime()
     }
-    func checkingIfAlreadyInFavorites() {
-        guard let stored = storedRecipes else { return }
+    override func viewWillAppear(_ animated: Bool) {
+        fetchingRecipe()
+        checkIfRecipeIsInFavorites()
+    }
+    func checkIfRecipeIsInFavorites() {
         guard let nameOfRecipe = receivedRecipe?.label else { return }
-        let nameStored = stored.map {$0.name}
-        
-        if nameStored.contains(nameOfRecipe) {
+        if coreDataManager.checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: nameOfRecipe) {
             setStarIcon(to: "star.fill")
         } else {
             setStarIcon(to: "star")
         }
     }
     func fetchingRecipe() {
-        coreDataManager.fetchRecipes { recipes in
-            self.storedRecipes = recipes
+        do {
+            try storedRecipes = coreDataManager.fetchingRecipes()
+        } catch {
+            print("Non")
         }
     }
     
     @IBAction func handlingStoredRecipe(_ sender: Any) {
-        guard let stored = storedRecipes else { return }
         guard let nameOfRecipe = receivedRecipe?.label else { return }
-        let nameStored = stored.map {$0.name}
         
-        if nameStored.contains(nameOfRecipe) {
+        if coreDataManager.checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: nameOfRecipe)  {
             warningLabel.text = "THIS RECIPE IS ALREADY IN THE FAVORITES !"
             warningLabel.isHidden = false
         } else {
@@ -65,6 +64,7 @@ final class DescriptionViewController: UIViewController {
         guard let recipe = receivedRecipe else {
             return
         }
+        
         let _ = coreDataManager.addingNewRecipe(
             recipe: recipe,
             name: recipe.label,

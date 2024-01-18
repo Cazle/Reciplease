@@ -18,11 +18,11 @@ final class FavoriteListController: UIViewController {
         fetchRecipes()
     }
     func fetchRecipes() {
-        coreDataManager.fetchRecipes { recipes in
-            self.storedRecipes = recipes
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+        do {
+            try storedRecipes = coreDataManager.fetchingRecipes()
+            self.tableView.reloadData()
+        } catch {
+            print("Something went wrong")
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -1,11 +1,11 @@
 import Foundation
 import Alamofire
 
-final class RecipeCall {
+final class DecodingRecipeModel {
     
-    let apiHandler: APIHandler
+    let apiHandler: APICall
     
-    init(apiHandler: APIHandler = APIHandler()) {
+    init(apiHandler: APICall = APIHandler()) {
         self.apiHandler = apiHandler
     }
     
@@ -19,7 +19,8 @@ final class RecipeCall {
             }
         }
     }
-    private func decode(data: Data, response: HTTPURLResponse) -> Result<APIRequestModel, Error> {
+    func decode(data: Data, response: HTTPURLResponse) -> Result<APIRequestModel, Error> {
+                
         guard response.statusCode == 200 else {
             print(APIError.invalidStatusCode)
             return .failure(APIError.invalidStatusCode)

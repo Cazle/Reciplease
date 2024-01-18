@@ -8,9 +8,10 @@ final class SearchController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
     let ingredientStore = IngredientStore()
-    let recipeHandler = RecipeCall()
+    let recipeHandler = DecodingRecipeModel()
     let urlEndpoint = URLEndpoint()
     var recipes = [Hit]()
+    var receivedNextLink: Next?
     
     let cellIdentifier = "ingredientCell"
     
@@ -37,8 +38,7 @@ final class SearchController: UIViewController {
             switch response {
             case .success(let data):
                 self?.recipes = data.hits
-                print(data.links.next.href)
-                print(data.links.next.title)
+                self?.receivedNextLink = data.links.next
                 if data.hits.isEmpty {
                     self?.errorLabel.isHidden = false
                 } else {
@@ -53,6 +53,7 @@ final class SearchController: UIViewController {
         if(segue.identifier == "searchToRecipe") {
             if let recipeController = (segue.destination as? RecipeListController) {
                 recipeController.recipes = recipes
+                recipeController.nextLink = receivedNextLink
             }
         }
     }

@@ -46,7 +46,7 @@ final class FavoriteDescriptionController: UIViewController {
             return
         }
         coreDataManager.deletingRecipe(deleting: recipeToDelete)
-        performSegue(withIdentifier: "descriptionToListFavorites", sender: self)
+        let _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func goToRecipeWebsite(_ sender: Any) {
