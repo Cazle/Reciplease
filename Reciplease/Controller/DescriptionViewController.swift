@@ -25,7 +25,7 @@ final class DescriptionViewController: UIViewController {
     override func viewDidLoad() {
         settingName()
         settingImage()
-        settingLikes()
+        settingCalories()
         settingTime()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -109,29 +109,25 @@ final class DescriptionViewController: UIViewController {
         guard let urlImage = URL(string: receivedImage) else {
             return
         }
-        apiHandler.request(url: urlImage) {response in
-            switch response {
-            case let .success((data, _)):
-                let image = UIImage(data: data)
-                self.mealImageView.image = image
-            case .failure :
-                self.mealImageView.image = nil
-            }
+        apiHandler.request(url: urlImage) {data, response in
+            guard let data = data else { return }
+            let image = UIImage(data: data)
+            self.mealImageView.image = image
         }
     }
     
-    func settingLikes() {
-        guard let receivedlikes = receivedRecipe?.calories else {
+    func settingCalories() {
+        guard let receivedCalories = receivedRecipe?.calories else {
             return
         }
-        likesLabel.text = formatAndTime.formattingLikes(receivedlikes)
+        likesLabel.text = formatAndTime.formattingCalories(receivedCalories)
     }
     
     func settingTime() {
         guard let timeCooking = receivedRecipe?.totalTime else {
             return
         }
-        timeLabel.text = formatAndTime.formatingHoursAndMinutes(minutes: timeCooking)
+        timeLabel.text = formatAndTime.formatingHoursAndMinutes(time: timeCooking)
     }
 }
 extension DescriptionViewController: UITableViewDataSource, UITableViewDelegate {

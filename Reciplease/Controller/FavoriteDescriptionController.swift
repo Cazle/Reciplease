@@ -28,17 +28,14 @@ final class FavoriteDescriptionController: UIViewController {
         guard let url = URL(string: urlImage) else { return }
         
         nameLabel.text = selectedRecipe?.name
-        timeLabel.text = formatAndTime.formatingHoursAndMinutes(minutes: Int(time))
-        caloriesLabel.text = formatAndTime.formattingLikes(calories)
+        timeLabel.text = formatAndTime.formatingHoursAndMinutes(time: Int(time))
+        caloriesLabel.text = formatAndTime.formattingCalories(calories)
         
-        apiHandler.request(url: url) {response in
-            switch response {
-            case let .success((data, _)):
-                let image = UIImage(data: data)
-                self.mealImageView.image = image
-            case .failure:
-                print("Image favorite not loaded")
-            }
+        apiHandler.request(url: url) {data, response in
+            guard let data = data else { return }
+            let image = UIImage(data: data)
+            self.mealImageView.image = image
+            print("Image favorite not loaded")
         }
     }
     @IBAction func deletingRecipe(_ sender: Any) {

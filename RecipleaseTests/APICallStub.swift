@@ -1,18 +1,14 @@
 @testable import Reciplease
 import Foundation
 
-final class APICallStub: APICall {
-    let result: Result<APIRequestModel, Error>
+final class APICallStub: APICall{
+ 
+    let result: (Data?, HTTPURLResponse?)
     
-    init(result: Result<APIRequestModel, Error>) {
+    init(result: (Data?, HTTPURLResponse?)) {
         self.result = result
     }
-    func request(url: URL, completion: @escaping (Result<APIRequestModel, Error>) -> Void) {
-        completion(result)
-    }
-}
-class test {
-    func testing() {
-       
+    func request(url: URL, completion: @escaping (Data?, HTTPURLResponse?) -> Void) {
+        completion(result.0, result.1)
     }
 }

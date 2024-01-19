@@ -3,24 +3,14 @@ import Alamofire
 
 
 protocol APICall {
-    func request(url: URL, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> Void)
+    func request(url: URL, completion: @escaping (Data?, HTTPURLResponse?) -> Void)
 }
 
 final class APIHandler: APICall {
-    func request(url: URL, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> Void) {
-        AF.request(url, method: .get).response { response in
-            switch response.result {
-            case .success:
-                guard let data = response.data else {
-                    return completion(.failure(APIError.invalidData))
-                }
-                guard let response = response.response else {
-                    return completion(.failure(APIError.invalidResponse))
-                }
-                completion(.success((data, response)))
-            case .failure:
-                completion(.failure(APIError.invalidRequest))
-            }
+    
+    func request(url: URL, completion: @escaping (Data?, HTTPURLResponse?) -> Void) {
+        AF.request(url, method: .get).response {response in
+            completion(response.data, response.response)
         }
     }
 }

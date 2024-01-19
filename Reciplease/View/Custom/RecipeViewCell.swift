@@ -32,8 +32,8 @@ final class RecipeViewCell: UITableViewCell {
         
         nameLabel.text = recipe.name
         ingredientLabel.text = ingredients
-        caloriesLabel.text = formatAndTime.formattingLikes(recipe.calories)
-        timeLabel.text = formatAndTime.formatingHoursAndMinutes(minutes: time)
+        caloriesLabel.text = formatAndTime.formattingCalories(recipe.calories)
+        timeLabel.text = formatAndTime.formatingHoursAndMinutes(time: time)
         
         guard let regularImage = recipe.urlImage else {
             return
@@ -41,28 +41,23 @@ final class RecipeViewCell: UITableViewCell {
         guard let urlImage = URL(string: regularImage) else {
             return
         }
-        apiHandler.request(url: urlImage) {response in
-            switch response {
-            case let .success((data, _)):
-                let image = UIImage(data: data)
-                self.mealImageView.image = image
-            case .failure:
-                self.mealImageView.image = nil
-            }
+        apiHandler.request(url: urlImage) {data, response in
+            guard let data = data else { return }
+            let image = UIImage(data: data)
+            self.mealImageView.image = image
         }
     }
     
     private func settingLikes(recipe: Recipe) {
         let getLikes = recipe.calories
-        caloriesLabel.text = formatAndTime.formattingLikes(getLikes)
-        
+        caloriesLabel.text = formatAndTime.formattingCalories(getLikes)
     }
     
     private func settingTime(recipe: Recipe) {
         guard let cookingTime = recipe.totalTime else {
             return
         }
-        timeLabel.text = formatAndTime.formatingHoursAndMinutes(minutes: cookingTime)
+        timeLabel.text = formatAndTime.formatingHoursAndMinutes(time: cookingTime)
     }
     
     private func settingImageView(recipe: Recipe) {
@@ -70,14 +65,10 @@ final class RecipeViewCell: UITableViewCell {
         guard let urlImage = URL(string: regularImage) else {
             return
         }
-        apiHandler.request(url: urlImage) {response in
-            switch response {
-            case let .success((data, _)):
-                let image = UIImage(data: data)
-                self.mealImageView.image = image
-            case .failure:
-                self.mealImageView.image = nil
-            }
+        apiHandler.request(url: urlImage) {data, response in
+            guard let data = data else { return }
+            let image = UIImage(data: data)
+            self.mealImageView.image = image
         }
     }
     

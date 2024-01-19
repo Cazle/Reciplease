@@ -5,7 +5,7 @@ final class RecipeListController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var barNavigation: UINavigationItem!
-    
+    @IBOutlet weak var spinLoader: UIActivityIndicatorView!
     var recipes = [Hit]()
     var selectedRecipe: Recipe?
     let decodingCall = DecodingRecipeModel()
@@ -49,13 +49,19 @@ extension RecipeListController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == recipes.count - 1  {
+            
+            spinLoader.hidesWhenStopped = true
+            spinLoader.startAnimating()
+            
             guard let urlNext = nextLink?.href, let url = URL(string: urlNext) else { return }
+            
             decodingCall.requestRecipe(url: url) {response in
                 switch response {
                 case let .success(newHit):
                     self.nextLink = newHit.links.next
                     self.recipes.append(contentsOf: newHit.hits)
                     self.tableView.reloadData()
+                    self.spinLoader.stopAnimating()
                 case .failure(let error):
                     print("It has failed... This is why \(error)")
                 }

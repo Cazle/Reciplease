@@ -294,6 +294,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kx8-6P-MFg">
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="bNy-h5-acl">
+                                    <rect key="frame" x="0.0" y="121.66666793823242" width="393" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCustomCell" id="MXS-Gl-c02" customClass="RecipeViewCell" customModule="Reciplease">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
@@ -324,6 +328,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="barNavigation" destination="Q6G-jY-t0k" id="9Ao-cB-CqA"/>
+                        <outlet property="spinLoader" destination="bNy-h5-acl" id="fgo-BC-tGB"/>
                         <outlet property="tableView" destination="kx8-6P-MFg" id="Jcd-Su-Dtr"/>
                         <segue destination="BKb-yw-Poz" kind="show" identifier="recipeToDescription" id="W0h-73-l0R"/>
                     </connections>

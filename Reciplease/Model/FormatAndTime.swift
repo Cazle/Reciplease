@@ -1,7 +1,7 @@
 import Foundation
 
 final class FormatAndTime {
-    func formattingLikes(_ number: Double) -> String {
+    func formattingCalories(_ number: Double) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.maximumFractionDigits = 0
@@ -11,8 +11,8 @@ final class FormatAndTime {
     private func minutesToHoursAndMinutes(_ minutes: Int) -> (hours: Int , leftMinutes: Int) {
         return (minutes / 60, (minutes % 60))
     }
-    func formatingHoursAndMinutes(minutes: Int) -> String {
-        let (hours, minutes) = minutesToHoursAndMinutes(minutes)
+    func formatingHoursAndMinutes(time: Int) -> String {
+        let (hours, minutes) = minutesToHoursAndMinutes(time)
         switch (hours, minutes) {
         case (0, 0):
             return ""

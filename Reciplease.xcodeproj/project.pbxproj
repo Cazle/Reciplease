@@ -12,6 +12,7 @@
 		2940947D2B5000D100F01372 /* FavoriteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2940947C2B5000D100F01372 /* FavoriteListController.swift */; };
 		294094832B513D0700F01372 /* FavoriteDescriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294094822B513D0700F01372 /* FavoriteDescriptionController.swift */; };
 		294094852B51492500F01372 /* DescriptionFavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294094842B51492500F01372 /* DescriptionFavoriteViewCell.swift */; };
+		2989C4B52B5A9D7200136597 /* FakeJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2989C4B42B5A9D7200136597 /* FakeJSON.swift */; };
 		298CC0DF2B21BA0000F28F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CC0DE2B21BA0000F28F96 /* AppDelegate.swift */; };
 		298CC0E12B21BA0000F28F96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CC0E02B21BA0000F28F96 /* SceneDelegate.swift */; };
 		298CC0E32B21BA0000F28F96 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CC0E22B21BA0000F28F96 /* SearchController.swift */; };
@@ -26,7 +27,7 @@
 		29A078942B2A07C2005CFF54 /* APIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078932B2A07C2005CFF54 /* APIRequestModel.swift */; };
 		29A078962B32F085005CFF54 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078952B32F085005CFF54 /* APIError.swift */; };
 		29A078982B334E98005CFF54 /* RecipeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078972B334E98005CFF54 /* RecipeListController.swift */; };
-		29A078AE2B3D8E1C005CFF54 /* RecipleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078AD2B3D8E1C005CFF54 /* RecipleaseTests.swift */; };
+		29A078AE2B3D8E1C005CFF54 /* DecodingRecipeModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078AD2B3D8E1C005CFF54 /* DecodingRecipeModelTests.swift */; };
 		29A078B52B3D8E90005CFF54 /* APICallStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078B42B3D8E90005CFF54 /* APICallStub.swift */; };
 		29A078B72B3D95CD005CFF54 /* DecodingRecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078B62B3D95CD005CFF54 /* DecodingRecipeModel.swift */; };
 		29A078C42B3DDEF0005CFF54 /* RecipeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078C22B3DDEF0005CFF54 /* RecipeViewCell.swift */; };
@@ -54,6 +55,7 @@
 		2940947C2B5000D100F01372 /* FavoriteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListController.swift; sourceTree = "<group>"; };
 		294094822B513D0700F01372 /* FavoriteDescriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDescriptionController.swift; sourceTree = "<group>"; };
 		294094842B51492500F01372 /* DescriptionFavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionFavoriteViewCell.swift; sourceTree = "<group>"; };
+		2989C4B42B5A9D7200136597 /* FakeJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeJSON.swift; sourceTree = "<group>"; };
 		298CC0DB2B21BA0000F28F96 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		298CC0DE2B21BA0000F28F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		298CC0E02B21BA0000F28F96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +73,7 @@
 		29A078952B32F085005CFF54 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		29A078972B334E98005CFF54 /* RecipeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListController.swift; sourceTree = "<group>"; };
 		29A078AB2B3D8E1C005CFF54 /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		29A078AD2B3D8E1C005CFF54 /* RecipleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseTests.swift; sourceTree = "<group>"; };
+		29A078AD2B3D8E1C005CFF54 /* DecodingRecipeModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingRecipeModelTests.swift; sourceTree = "<group>"; };
 		29A078B42B3D8E90005CFF54 /* APICallStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallStub.swift; sourceTree = "<group>"; };
 		29A078B62B3D95CD005CFF54 /* DecodingRecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingRecipeModel.swift; sourceTree = "<group>"; };
 		29A078C22B3DDEF0005CFF54 /* RecipeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewCell.swift; sourceTree = "<group>"; };
@@ -219,8 +221,9 @@
 		29A078AC2B3D8E1C005CFF54 /* RecipleaseTests */ = {
 			isa = PBXGroup;
 			children = (
-				29A078AD2B3D8E1C005CFF54 /* RecipleaseTests.swift */,
+				29A078AD2B3D8E1C005CFF54 /* DecodingRecipeModelTests.swift */,
 				29A078B42B3D8E90005CFF54 /* APICallStub.swift */,
+				2989C4B42B5A9D7200136597 /* FakeJSON.swift */,
 			);
 			path = RecipleaseTests;
 			sourceTree = "<group>";
@@ -229,10 +232,10 @@
 			isa = PBXGroup;
 			children = (
 				29A078B62B3D95CD005CFF54 /* DecodingRecipeModel.swift */,
+				298CC0FA2B21D67F00F28F96 /* APIHandler.swift */,
 				29A078932B2A07C2005CFF54 /* APIRequestModel.swift */,
 				29A078912B289A0A005CFF54 /* URLEndpoint.swift */,
 				29A078952B32F085005CFF54 /* APIError.swift */,
-				298CC0FA2B21D67F00F28F96 /* APIHandler.swift */,
 			);
 			path = APIFiles;
 			sourceTree = "<group>";
@@ -421,7 +424,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				29A078B52B3D8E90005CFF54 /* APICallStub.swift in Sources */,
-				29A078AE2B3D8E1C005CFF54 /* RecipleaseTests.swift in Sources */,
+				2989C4B52B5A9D7200136597 /* FakeJSON.swift in Sources */,
+				29A078AE2B3D8E1C005CFF54 /* DecodingRecipeModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
