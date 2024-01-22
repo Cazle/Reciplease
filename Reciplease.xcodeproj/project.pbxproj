@@ -13,6 +13,8 @@
 		294094832B513D0700F01372 /* FavoriteDescriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294094822B513D0700F01372 /* FavoriteDescriptionController.swift */; };
 		294094852B51492500F01372 /* DescriptionFavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294094842B51492500F01372 /* DescriptionFavoriteViewCell.swift */; };
 		2989C4B52B5A9D7200136597 /* FakeJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2989C4B42B5A9D7200136597 /* FakeJSON.swift */; };
+		2989C4B72B5E74D200136597 /* IngredientStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2989C4B62B5E74D200136597 /* IngredientStoreTests.swift */; };
+		2989C4B92B5E769F00136597 /* CaloriesAndTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2989C4B82B5E769F00136597 /* CaloriesAndTimeTests.swift */; };
 		298CC0DF2B21BA0000F28F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CC0DE2B21BA0000F28F96 /* AppDelegate.swift */; };
 		298CC0E12B21BA0000F28F96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CC0E02B21BA0000F28F96 /* SceneDelegate.swift */; };
 		298CC0E32B21BA0000F28F96 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CC0E22B21BA0000F28F96 /* SearchController.swift */; };
@@ -34,7 +36,7 @@
 		29A078C52B3DDEF0005CFF54 /* RecipeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29A078C32B3DDEF0005CFF54 /* RecipeViewCell.xib */; };
 		29A078C92B440D30005CFF54 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078C82B440D30005CFF54 /* DescriptionViewController.swift */; };
 		29A078CD2B441B9A005CFF54 /* DescriptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078CC2B441B9A005CFF54 /* DescriptionViewCell.swift */; };
-		29A078D12B4842E3005CFF54 /* FormatAndTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078D02B4842E3005CFF54 /* FormatAndTime.swift */; };
+		29A078D12B4842E3005CFF54 /* CaloriesAndTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A078D02B4842E3005CFF54 /* CaloriesAndTime.swift */; };
 		3E5BAFD9E1761EC0F76AF9B1 /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14976DF1E6F898688998A7BF /* Pods_Reciplease.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,8 @@
 		294094822B513D0700F01372 /* FavoriteDescriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDescriptionController.swift; sourceTree = "<group>"; };
 		294094842B51492500F01372 /* DescriptionFavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionFavoriteViewCell.swift; sourceTree = "<group>"; };
 		2989C4B42B5A9D7200136597 /* FakeJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeJSON.swift; sourceTree = "<group>"; };
+		2989C4B62B5E74D200136597 /* IngredientStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientStoreTests.swift; sourceTree = "<group>"; };
+		2989C4B82B5E769F00136597 /* CaloriesAndTimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesAndTimeTests.swift; sourceTree = "<group>"; };
 		298CC0DB2B21BA0000F28F96 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		298CC0DE2B21BA0000F28F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		298CC0E02B21BA0000F28F96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,7 +84,7 @@
 		29A078C32B3DDEF0005CFF54 /* RecipeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeViewCell.xib; sourceTree = "<group>"; };
 		29A078C82B440D30005CFF54 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		29A078CC2B441B9A005CFF54 /* DescriptionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewCell.swift; sourceTree = "<group>"; };
-		29A078D02B4842E3005CFF54 /* FormatAndTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatAndTime.swift; sourceTree = "<group>"; };
+		29A078D02B4842E3005CFF54 /* CaloriesAndTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesAndTime.swift; sourceTree = "<group>"; };
 		4A3FBD257062C729AE3E32C9 /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
 		FB10A47EECC26D7CABC503F7 /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -190,7 +194,7 @@
 				294094772B4D874F00F01372 /* CoreDataModel */,
 				29A078B82B3D98E8005CFF54 /* APIFiles */,
 				29A0788B2B231FC1005CFF54 /* IngredientStore.swift */,
-				29A078D02B4842E3005CFF54 /* FormatAndTime.swift */,
+				29A078D02B4842E3005CFF54 /* CaloriesAndTime.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -224,6 +228,8 @@
 				29A078AD2B3D8E1C005CFF54 /* DecodingRecipeModelTests.swift */,
 				29A078B42B3D8E90005CFF54 /* APICallStub.swift */,
 				2989C4B42B5A9D7200136597 /* FakeJSON.swift */,
+				2989C4B62B5E74D200136597 /* IngredientStoreTests.swift */,
+				2989C4B82B5E769F00136597 /* CaloriesAndTimeTests.swift */,
 			);
 			path = RecipleaseTests;
 			sourceTree = "<group>";
@@ -407,7 +413,7 @@
 				29A078C42B3DDEF0005CFF54 /* RecipeViewCell.swift in Sources */,
 				294094832B513D0700F01372 /* FavoriteDescriptionController.swift in Sources */,
 				29A078C92B440D30005CFF54 /* DescriptionViewController.swift in Sources */,
-				29A078D12B4842E3005CFF54 /* FormatAndTime.swift in Sources */,
+				29A078D12B4842E3005CFF54 /* CaloriesAndTime.swift in Sources */,
 				294094852B51492500F01372 /* DescriptionFavoriteViewCell.swift in Sources */,
 				29A0788C2B231FC1005CFF54 /* IngredientStore.swift in Sources */,
 				29A078922B289A0A005CFF54 /* URLEndpoint.swift in Sources */,
@@ -425,6 +431,8 @@
 			files = (
 				29A078B52B3D8E90005CFF54 /* APICallStub.swift in Sources */,
 				2989C4B52B5A9D7200136597 /* FakeJSON.swift in Sources */,
+				2989C4B72B5E74D200136597 /* IngredientStoreTests.swift in Sources */,
+				2989C4B92B5E769F00136597 /* CaloriesAndTimeTests.swift in Sources */,
 				29A078AE2B3D8E1C005CFF54 /* DecodingRecipeModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

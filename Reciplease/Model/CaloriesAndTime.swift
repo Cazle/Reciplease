@@ -1,6 +1,6 @@
 import Foundation
 
-final class FormatAndTime {
+final class CaloriesAndTime {
     func formattingCalories(_ number: Double) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -20,7 +20,7 @@ final class FormatAndTime {
             return"\(hours)h ⏱️"
         case (0, 0...60):
             return "\(minutes)m ⏱️"
-        case (1...10, 0...60):
+        case (1...24, 0...60):
             return "\(hours)h\(minutes)m ⏱️"
         default:
             return "Error"

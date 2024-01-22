@@ -15,7 +15,7 @@ final class DescriptionViewController: UIViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).backgroundContext
     
     let apiHandler = APIHandler()
-    let formatAndTime = FormatAndTime()
+    let formatAndTime = CaloriesAndTime()
     var receivedRecipe: Recipe?
     var storedRecipes: [RecipeEntity]?
     lazy var coreDataManager = CoreDataManager(context: context)

@@ -10,7 +10,7 @@ final class RecipeViewCell: UITableViewCell {
     
     let identifier = "recipeCustomCell"
     let apiHandler = APIHandler()
-    let formatAndTime = FormatAndTime()
+    let formatAndTime = CaloriesAndTime()
     
     func nibRecipeViewCell() -> UINib {
         return UINib(nibName: "RecipeViewCell", bundle: nil)

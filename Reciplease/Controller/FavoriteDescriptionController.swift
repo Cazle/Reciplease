@@ -12,7 +12,7 @@ final class FavoriteDescriptionController: UIViewController {
     let cellIdentifier = "favoriteCell"
     
     var selectedRecipe: RecipeEntity?
-    let formatAndTime = FormatAndTime()
+    let formatAndTime = CaloriesAndTime()
     let apiHandler = APIHandler()
     let context = (UIApplication.shared.delegate as! AppDelegate).backgroundContext
     lazy var coreDataManager = CoreDataManager(context: context)
