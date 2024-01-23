@@ -15,6 +15,7 @@
 		2989C4B52B5A9D7200136597 /* FakeJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2989C4B42B5A9D7200136597 /* FakeJSON.swift */; };
 		2989C4B72B5E74D200136597 /* IngredientStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2989C4B62B5E74D200136597 /* IngredientStoreTests.swift */; };
 		2989C4B92B5E769F00136597 /* CaloriesAndTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2989C4B82B5E769F00136597 /* CaloriesAndTimeTests.swift */; };
+		2989C4BB2B5FCC1600136597 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2989C4BA2B5FCC1600136597 /* CoreDataTests.swift */; };
 		298CC0DF2B21BA0000F28F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CC0DE2B21BA0000F28F96 /* AppDelegate.swift */; };
 		298CC0E12B21BA0000F28F96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CC0E02B21BA0000F28F96 /* SceneDelegate.swift */; };
 		298CC0E32B21BA0000F28F96 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CC0E22B21BA0000F28F96 /* SearchController.swift */; };
@@ -60,6 +61,7 @@
 		2989C4B42B5A9D7200136597 /* FakeJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeJSON.swift; sourceTree = "<group>"; };
 		2989C4B62B5E74D200136597 /* IngredientStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientStoreTests.swift; sourceTree = "<group>"; };
 		2989C4B82B5E769F00136597 /* CaloriesAndTimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesAndTimeTests.swift; sourceTree = "<group>"; };
+		2989C4BA2B5FCC1600136597 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		298CC0DB2B21BA0000F28F96 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		298CC0DE2B21BA0000F28F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		298CC0E02B21BA0000F28F96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				2989C4B42B5A9D7200136597 /* FakeJSON.swift */,
 				2989C4B62B5E74D200136597 /* IngredientStoreTests.swift */,
 				2989C4B82B5E769F00136597 /* CaloriesAndTimeTests.swift */,
+				2989C4BA2B5FCC1600136597 /* CoreDataTests.swift */,
 			);
 			path = RecipleaseTests;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 			files = (
 				29A078B52B3D8E90005CFF54 /* APICallStub.swift in Sources */,
 				2989C4B52B5A9D7200136597 /* FakeJSON.swift in Sources */,
+				2989C4BB2B5FCC1600136597 /* CoreDataTests.swift in Sources */,
 				2989C4B72B5E74D200136597 /* IngredientStoreTests.swift in Sources */,
 				2989C4B92B5E769F00136597 /* CaloriesAndTimeTests.swift in Sources */,
 				29A078AE2B3D8E1C005CFF54 /* DecodingRecipeModelTests.swift in Sources */,
