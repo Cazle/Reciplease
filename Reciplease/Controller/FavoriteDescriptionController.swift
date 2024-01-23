@@ -35,7 +35,6 @@ final class FavoriteDescriptionController: UIViewController {
             guard let data = data else { return }
             let image = UIImage(data: data)
             self.mealImageView.image = image
-            print("Image favorite not loaded")
         }
     }
     @IBAction func deletingRecipe(_ sender: Any) {

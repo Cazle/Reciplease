@@ -43,9 +43,7 @@ final class DescriptionViewController: UIViewController {
     func fetchingRecipe() {
         do {
             try storedRecipes = coreDataManager.fetchingRecipes()
-        } catch {
-            print("Non")
-        }
+        } catch {}
     }
     
     @IBAction func handlingStoredRecipe(_ sender: Any) {

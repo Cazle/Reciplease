@@ -18,6 +18,12 @@ final class SearchController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+                view.addGestureRecognizer(tap)
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+            view.endEditing(true)
     }
     
     @IBAction func tapAdd(_ sender: Any) {

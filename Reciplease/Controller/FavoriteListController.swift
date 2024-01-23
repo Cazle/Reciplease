@@ -4,6 +4,8 @@ import UIKit
 
 final class FavoriteListController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var messageView: UIView!
     
     var storedRecipes: [RecipeEntity]?
     var recipeToSend: RecipeEntity?
@@ -16,6 +18,17 @@ final class FavoriteListController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         fetchRecipes()
+        displayingMessageIfFavoritesAreEmpty()
+    }
+    func displayingMessageIfFavoritesAreEmpty() {
+        guard let store = storedRecipes else { return }
+        if store.isEmpty {
+            messageView.isHidden = false
+            messageLabel.isHidden = false
+        } else {
+            messageView.isHidden = true
+            messageLabel.isHidden = true
+        }
     }
     func fetchRecipes() {
         do {
