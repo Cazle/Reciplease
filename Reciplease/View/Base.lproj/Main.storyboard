@@ -263,42 +263,30 @@
                                     <outlet property="delegate" destination="G5v-Wf-QZ0" id="X5B-cy-x8P"/>
                                 </connections>
                             </tableView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bxg-Sc-d8V">
-                                <rect key="frame" x="0.0" y="91" width="428" height="752"/>
-                                <subviews>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p34-QC-gZy">
-                                        <rect key="frame" x="10" y="0.0" width="408" height="752"/>
-                                        <string key="text">You don't have any recipes in your favorties ! To add any recipes in your favorites you need to : Search a recipe with your ingredients. Then click on a recipe that you like. And finally, click on the Green Star on the top right of the screen. And tada ! It appears on your favorites !</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="p34-QC-gZy" secondAttribute="bottom" id="RxZ-O9-CxW"/>
-                                    <constraint firstAttribute="trailing" secondItem="p34-QC-gZy" secondAttribute="trailing" constant="10" id="nUW-6X-SXF"/>
-                                    <constraint firstItem="p34-QC-gZy" firstAttribute="leading" secondItem="Bxg-Sc-d8V" secondAttribute="leading" constant="10" id="pVH-EN-QfD"/>
-                                    <constraint firstItem="p34-QC-gZy" firstAttribute="top" secondItem="Bxg-Sc-d8V" secondAttribute="top" id="wco-kp-c1K"/>
-                                </constraints>
-                            </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p34-QC-gZy">
+                                <rect key="frame" x="20" y="111" width="388" height="712"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">You don't have any recipes in your favorties ! To add any recipes in your favorites you need to : Search a recipe with your ingredients. Then click on a recipe that you like. And finally, click on the Green Star on the top right of the screen. And tada ! It appears on your favorites !</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="foQ-eC-fBA"/>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="foQ-eC-fBA" firstAttribute="bottom" secondItem="p34-QC-gZy" secondAttribute="bottom" constant="20" id="CaI-7B-Gy5"/>
+                            <constraint firstItem="foQ-eC-fBA" firstAttribute="trailing" secondItem="p34-QC-gZy" secondAttribute="trailing" constant="20" id="DTd-dP-CnE"/>
                             <constraint firstItem="foQ-eC-fBA" firstAttribute="trailing" secondItem="hQ8-Pq-Mro" secondAttribute="trailing" id="LIJ-Dp-SOc"/>
-                            <constraint firstItem="foQ-eC-fBA" firstAttribute="trailing" secondItem="Bxg-Sc-d8V" secondAttribute="trailing" id="SBn-tz-mlY"/>
                             <constraint firstItem="foQ-eC-fBA" firstAttribute="bottom" secondItem="hQ8-Pq-Mro" secondAttribute="bottom" id="XIR-RM-NrM"/>
-                            <constraint firstItem="Bxg-Sc-d8V" firstAttribute="leading" secondItem="foQ-eC-fBA" secondAttribute="leading" id="YRG-Op-2Vi"/>
-                            <constraint firstItem="Bxg-Sc-d8V" firstAttribute="top" secondItem="foQ-eC-fBA" secondAttribute="top" id="eV6-1y-Hxa"/>
+                            <constraint firstItem="p34-QC-gZy" firstAttribute="top" secondItem="foQ-eC-fBA" secondAttribute="top" constant="20" id="Yvy-p1-X0d"/>
+                            <constraint firstItem="p34-QC-gZy" firstAttribute="leading" secondItem="foQ-eC-fBA" secondAttribute="leading" constant="20" id="g1Z-BX-6dV"/>
                             <constraint firstItem="hQ8-Pq-Mro" firstAttribute="top" secondItem="foQ-eC-fBA" secondAttribute="top" id="jWy-dV-zMH"/>
                             <constraint firstItem="hQ8-Pq-Mro" firstAttribute="leading" secondItem="foQ-eC-fBA" secondAttribute="leading" id="t6r-Ja-86L"/>
-                            <constraint firstItem="foQ-eC-fBA" firstAttribute="bottom" secondItem="Bxg-Sc-d8V" secondAttribute="bottom" id="yn7-g5-k6t"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Reciplease" id="lWr-dT-yDZ"/>
                     <connections>
                         <outlet property="messageLabel" destination="p34-QC-gZy" id="oug-zJ-WP1"/>
-                        <outlet property="messageView" destination="Bxg-Sc-d8V" id="Myy-si-4aS"/>
                         <outlet property="tableView" destination="hQ8-Pq-Mro" id="rSc-KG-G3q"/>
                         <segue destination="Art-CE-hUf" kind="show" identifier="favoriteToDescription" id="5rh-eb-nbs"/>
                     </connections>
