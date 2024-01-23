@@ -7,12 +7,10 @@ final class CoreDataTests: XCTestCase {
     
     var coreDataManager: CoreDataManager!
     
-    override func setUpWithError() throws {
-        try super.setUpWithError()
+    override func setUp() {
         loadingFakeCoreData()
     }
-    override func tearDownWithError() throws {
-        try super.tearDownWithError()
+    override func tearDown() {
         coreDataManager = nil
     }
     
