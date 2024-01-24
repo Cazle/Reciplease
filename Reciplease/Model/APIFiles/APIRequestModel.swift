@@ -43,8 +43,6 @@ struct Ingredients: Decodable {
 }
 struct Regular: Decodable {
     let url: String
-    let width: Int
-    let height: Int
 }
 
 

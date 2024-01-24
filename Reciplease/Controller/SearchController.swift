@@ -6,6 +6,7 @@ final class SearchController: UIViewController {
     @IBOutlet weak var searchBarTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var searchButton: UIButton!
     
     let ingredientStore = IngredientStore()
     let recipeHandler = DecodingRecipeModel()
@@ -17,6 +18,9 @@ final class SearchController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        makeAccessibilityComponents()
+        
         tableView.dataSource = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
                 view.addGestureRecognizer(tap)
@@ -26,12 +30,27 @@ final class SearchController: UIViewController {
             view.endEditing(true)
     }
     
+    private func makeAccessibilityComponents() {
+        searchBarTextField.accessibilityLabel = "Searching bar to enter your ingredients"
+        searchBarTextField.accessibilityIdentifier = "searchBarTextField"
+        
+        tableView.accessibilityLabel = "List of all your ingredients"
+        tableView.accessibilityIdentifier = "tableView"
+        
+        errorLabel.accessibilityLabel = "Error, there is something wrong with your ingredients, make sure to enter correct ingredient."
+        errorLabel.accessibilityIdentifier = "errorLabel"
+        
+        searchButton.accessibilityLabel = "Button for searching recipes"
+        searchButton.accessibilityIdentifier = "searchButton"
+    }
+    
     @IBAction func tapAdd(_ sender: Any) {
         guard let input = searchBarTextField.text else { return }
         ingredientStore.add(ingredient: input)
         searchBarTextField.text = ""
         tableView.reloadData()
     }
+    
     @IBAction func tapClear(_ sender: Any) {
         ingredientStore.deleteAll()
         tableView.reloadData()
@@ -55,6 +74,7 @@ final class SearchController: UIViewController {
             }
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "searchToRecipe") {
             if let recipeController = (segue.destination as? RecipeListController) {
@@ -70,6 +90,7 @@ extension SearchController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         ingredientStore.ingredients.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? IngredientViewCell else {
             return UITableViewCell()

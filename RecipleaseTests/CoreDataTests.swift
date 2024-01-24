@@ -32,24 +32,25 @@ final class CoreDataTests: XCTestCase {
         coreDataManager = CoreDataManager(context: backgroundContext)
     }
     
-    func test_fetchingRecipe() {
-        let newRecipe1 = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
+    func test_fetchingRecipe() throws {
+        let _ = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
         
-        let newRecipe2 = coreDataManager.addingNewRecipe(recipe: nil, name: "Curry", calories: 700, time: 45, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["curry"], ingredientLines: ["300G OF CURRY"])
+        let _ = coreDataManager.addingNewRecipe(recipe: nil, name: "Curry", calories: 700, time: 45, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["curry"], ingredientLines: ["300G OF CURRY"])
         
-        do {
-            try coreDataManager.context.save()
-        } catch {}
+        try coreDataManager.context.save()
+       
         
         do {
             let fetchedRecipe = try coreDataManager.fetchingRecipes()
             XCTAssertEqual(fetchedRecipe.count, 2)
-        } catch {}
+        } catch {
+            XCTFail("Did not fetched")
+        }
     }
     
     func test_addingANewRecipe() {
         
-        let newRecipe = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
+        let _ = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
         do {
             try coreDataManager.context.save()
         } catch {}
@@ -79,7 +80,7 @@ final class CoreDataTests: XCTestCase {
         } catch {}
     }
     func test_checkingIfARecipeNameAlreadyExists() {
-        let newRecipe = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
+        let _ = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
         
         do {
             try coreDataManager.context.save()
@@ -91,7 +92,7 @@ final class CoreDataTests: XCTestCase {
         }
     }
     func test_nameOfRecipeDoesNotExists() {
-        let newRecipe = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
+        let _ = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
         
         do {
             try coreDataManager.context.save()

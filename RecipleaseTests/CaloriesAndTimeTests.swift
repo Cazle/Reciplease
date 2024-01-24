@@ -13,6 +13,7 @@ final class CaloriesAndTimeTests: XCTestCase {
         
         XCTAssertEqual(formattedCalories, "3 024 Cal")
     }
+    
     func test_whenThereIsNoNumber() {
         let sut = CaloriesAndTime()
         
@@ -22,6 +23,7 @@ final class CaloriesAndTimeTests: XCTestCase {
         
         XCTAssertEqual(formattedCalories, "0 Cal")
     }
+    
     func test_whenThereIsNoTimerOnARecipe() {
         
         let sut = CaloriesAndTime()
@@ -32,6 +34,7 @@ final class CaloriesAndTimeTests: XCTestCase {
         
         XCTAssertEqual(formattedTime, "")
     }
+    
     func test_whenThereIsOnlyHoursOnARecipe() {
         
         let sut = CaloriesAndTime()
@@ -42,6 +45,7 @@ final class CaloriesAndTimeTests: XCTestCase {
         
         XCTAssertEqual(formattedTime, "1h ⏱️")
     }
+    
     func test_whenThereIsOnlyMinutesOnARecipe() {
         let sut = CaloriesAndTime()
         
@@ -51,6 +55,7 @@ final class CaloriesAndTimeTests: XCTestCase {
         
         XCTAssertEqual(formattedTime, "45m ⏱️")
     }
+    
     func test_whenThereIsHoursAndMinutesOnARecipe() {
         let sut = CaloriesAndTime()
         
@@ -60,6 +65,7 @@ final class CaloriesAndTimeTests: XCTestCase {
         
         XCTAssertEqual(formattedTime, "1h30m ⏱️")
     }
+    
     func test_theDefaultCase() {
         let sut = CaloriesAndTime()
         

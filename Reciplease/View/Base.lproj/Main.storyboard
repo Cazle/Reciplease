@@ -205,6 +205,7 @@
                     <connections>
                         <outlet property="errorLabel" destination="3AU-Om-1iz" id="O5u-TK-f8R"/>
                         <outlet property="searchBarTextField" destination="o8y-O2-P8y" id="7n0-fE-cde"/>
+                        <outlet property="searchButton" destination="Jl2-pv-eaX" id="MiP-rz-ZS6"/>
                         <outlet property="tableView" destination="e7p-Pi-OaI" id="aEJ-Hb-aXk"/>
                         <segue destination="IRb-AL-ifF" kind="show" identifier="searchToRecipe" id="rey-AZ-9rc"/>
                     </connections>

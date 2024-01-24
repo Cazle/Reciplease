@@ -42,13 +42,10 @@ final class CoreDataManager {
             let fetchRequest = RecipeEntity.fetchRequest()
             let predicate = NSPredicate(format: "name == %@", nameOfRecipe)
             fetchRequest.predicate = predicate
-            
-            do {
-                let fetchingNames = try context.fetch(fetchRequest)
-                return !fetchingNames.isEmpty
-            } catch {
-                return false
-            }
+             if let fetchingNames = try? context.fetch(fetchRequest) {
+                 return !fetchingNames.isEmpty
+             }
+             return false
         }
     }
 }

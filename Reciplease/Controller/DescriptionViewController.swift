@@ -18,6 +18,7 @@ final class DescriptionViewController: UIViewController {
     let formatAndTime = CaloriesAndTime()
     var receivedRecipe: Recipe?
     var storedRecipes: [RecipeEntity]?
+    var currentRecipe: RecipeEntity?
     lazy var coreDataManager = CoreDataManager(context: context)
     
     let cellIdentifier = "descriptionCell"
@@ -28,10 +29,13 @@ final class DescriptionViewController: UIViewController {
         settingCalories()
         settingTime()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
-        fetchingRecipe()
+        fetchingAllRecipes()
         checkIfRecipeIsInFavorites()
+        loadRecipeEntityIfItExistsInTheStore()
     }
+    
     func checkIfRecipeIsInFavorites() {
         guard let nameOfRecipe = receivedRecipe?.label else { return }
         if coreDataManager.checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: nameOfRecipe) {
@@ -40,30 +44,43 @@ final class DescriptionViewController: UIViewController {
             setStarIcon(to: "star")
         }
     }
-    func fetchingRecipe() {
-        do {
-            try storedRecipes = coreDataManager.fetchingRecipes()
-        } catch {}
+    
+    func fetchingAllRecipes() {
+        try? storedRecipes = coreDataManager.fetchingRecipes()
+    }
+    
+    func loadRecipeEntityIfItExistsInTheStore() {
+        guard let recipe = receivedRecipe else { return }
+        guard let store = storedRecipes else { return }
+        let allStore = store.map{$0.name}
+        
+        if allStore.contains(recipe.label) {
+            guard let existingRecipe = store.first(where: {$0.name == recipe.label}) else { return }
+            currentRecipe = existingRecipe
+        } else {
+            print("This doesn't exists in the store !")
+        }
     }
     
     @IBAction func handlingStoredRecipe(_ sender: Any) {
         guard let nameOfRecipe = receivedRecipe?.label else { return }
         
-        if coreDataManager.checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: nameOfRecipe)  {
-            warningLabel.text = "THIS RECIPE IS ALREADY IN THE FAVORITES !"
-            warningLabel.isHidden = false
+        if coreDataManager.checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: nameOfRecipe) {
+            guard let deletingRecipe = currentRecipe else { return }
+            coreDataManager.deletingRecipe(deleting: deletingRecipe)
+            setStarIcon(to: "star")
         } else {
+            setStarIcon(to: "star.fill")
             addRecipe()
-            fetchingRecipe()
         }
+        fetchingAllRecipes()
     }
     
     func addRecipe() {
         guard let recipe = receivedRecipe else {
             return
         }
-        
-        let _ = coreDataManager.addingNewRecipe(
+        let newRecipe = coreDataManager.addingNewRecipe(
             recipe: recipe,
             name: recipe.label,
             calories: recipe.calories,
@@ -73,19 +90,16 @@ final class DescriptionViewController: UIViewController {
             ingredients: recipe.ingredients.map{$0.food},
             ingredientLines: recipe.ingredientLines)
         
-        do {
-            try context.save()
-            setStarIcon(to: "star.fill")
-            
-        } catch {
-            print("Something went wrong")
-        }
+            currentRecipe = newRecipe
+    
+            try? context.save()
     }
     
     
     func setStarIcon(to named: String) {
         starButton.image = UIImage(systemName: named)
     }
+    
     @IBAction func goToRecipeWebSite(_ sender: Any) {
         guard let receivedUrl = receivedRecipe?.url else {
             return
@@ -104,9 +118,11 @@ final class DescriptionViewController: UIViewController {
         guard let receivedImage = receivedRecipe?.images.regular.url else {
             return
         }
+        
         guard let urlImage = URL(string: receivedImage) else {
             return
         }
+        
         apiHandler.request(url: urlImage) {data, response in
             guard let data = data else { return }
             let image = UIImage(data: data)
@@ -128,6 +144,7 @@ final class DescriptionViewController: UIViewController {
         timeLabel.text = formatAndTime.formatingHoursAndMinutes(time: timeCooking)
     }
 }
+
 extension DescriptionViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
