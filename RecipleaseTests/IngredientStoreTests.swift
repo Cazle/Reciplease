@@ -4,7 +4,6 @@ import XCTest
 
 final class IngredientStoreTests: XCTestCase {
     
-    
     func test_testingTheAddMethod() {
         
         let sut = IngredientStore()
@@ -24,5 +23,4 @@ final class IngredientStoreTests: XCTestCase {
         
         XCTAssertEqual(sut.ingredients, [])
     }
-    
 }

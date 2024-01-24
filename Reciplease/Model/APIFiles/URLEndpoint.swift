@@ -14,6 +14,7 @@ final class URLEndpoint {
             "app_id": "cbfe9715",
             "app_key": "91e322d3c82707bcc618b8756198ac31"
         ]
+        
         components.queryItems = paramaters.map { URLQueryItem(name: $0.key, value: "\($0.value)")}
         
         return components.url!

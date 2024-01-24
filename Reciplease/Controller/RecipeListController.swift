@@ -56,6 +56,7 @@ extension RecipeListController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == recipes.count - 1  {
             

@@ -20,6 +20,7 @@ final class DecodingRecipeModel {
             completion(self.decode(data: data, response: response))
         }
     }
+    
     func decode(data: Data, response: HTTPURLResponse) -> Result<APIRequestModel, Error> {
         guard response.statusCode == 200 else {
             print(APIError.invalidStatusCode)

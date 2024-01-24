@@ -26,6 +26,7 @@ final class SearchController: UIViewController {
                 view.addGestureRecognizer(tap)
         view.addGestureRecognizer(tap)
     }
+    
     @objc func dismissKeyboard() {
             view.endEditing(true)
     }

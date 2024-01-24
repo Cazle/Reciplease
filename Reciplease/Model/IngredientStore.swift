@@ -7,6 +7,7 @@ final class IngredientStore {
     func add(ingredient: String) {
         ingredients.append(ingredient)
     }
+    
     func deleteAll() {
         ingredients.removeAll()
     }

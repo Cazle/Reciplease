@@ -1,6 +1,7 @@
 import Foundation
 
 final class CaloriesAndTime {
+    
     func formattingCalories(_ number: Double) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -8,9 +9,11 @@ final class CaloriesAndTime {
         
         return "\(formatter.string(from: NSNumber(value: number)) ?? "") Cal"
     }
+    
     private func minutesToHoursAndMinutes(_ minutes: Int) -> (hours: Int , leftMinutes: Int) {
         return (minutes / 60, (minutes % 60))
     }
+    
     func formatingHoursAndMinutes(time: Int) -> String {
         let (hours, minutes) = minutesToHoursAndMinutes(time)
         switch (hours, minutes) {

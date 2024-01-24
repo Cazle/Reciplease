@@ -37,6 +37,7 @@ final class FavoriteDescriptionController: UIViewController {
             self.mealImageView.image = image
         }
     }
+    
     @IBAction func deletingRecipe(_ sender: Any) {
         guard let recipeToDelete = selectedRecipe else {
             return
@@ -62,6 +63,7 @@ extension FavoriteDescriptionController: UITableViewDelegate, UITableViewDataSou
         guard let ingredients = recipe.ingredientLines else { return 0 }
         return ingredients.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? DescriptionFavoriteViewCell else {
             return UITableViewCell()
@@ -74,6 +76,5 @@ extension FavoriteDescriptionController: UITableViewDelegate, UITableViewDataSou
         cell.settingIngredient(named: listOfIngredients)
         
         return cell
-        
     }
 }

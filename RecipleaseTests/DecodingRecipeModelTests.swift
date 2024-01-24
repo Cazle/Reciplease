@@ -3,7 +3,7 @@ import XCTest
 
 final class DecodingRecipeModelTests: XCTestCase {
     
-    func test_emptyData() {
+    func test_tryingToRequestRecipeWhenTheDataIsNil() {
         let correctURL = URL(string: "https://apple.com")!
         let dataNil: Data? = nil
         let correctResponse = HTTPURLResponse(url: correctURL, statusCode: 200, httpVersion: nil, headerFields: nil)!
@@ -23,7 +23,7 @@ final class DecodingRecipeModelTests: XCTestCase {
         }
         wait(for: [exp], timeout: 0.2)
     }
-    func test_decodingDataFails() {
+    func test_tryingToRequestRecipeAndTheDataAreNotCorrectSoTheDecodingFails() {
         let correctURL = URL(string: "https://apple.com")!
         let wrongData = Data("dataNotDecodable".utf8)
         let correctResponse = HTTPURLResponse(url: correctURL, statusCode: 200, httpVersion: nil, headerFields: nil)!
@@ -62,7 +62,7 @@ final class DecodingRecipeModelTests: XCTestCase {
         }
         wait(for: [exp], timeout: 0.2)
     }
-    func test_whenTheURLOfResponseIsNotCorrect() {
+    func test_whenTheHTTPURLResponseIsNilSoTheResponseFails() {
         let correctURL = URL(string: "https://apple.com")!
         let uncorrectResponse: HTTPURLResponse? = nil
         

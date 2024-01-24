@@ -11,6 +11,7 @@ final class TabBarController: UITabBarController {
         guard let items = tabBar.items else {
             return
         }
+        
         guard let normalFont = UIFont(name: "Chalkduster", size: 23) else {
             return
         }

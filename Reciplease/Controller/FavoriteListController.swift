@@ -15,10 +15,12 @@ final class FavoriteListController: UIViewController {
     override func viewDidLoad() {
         tableView.register(recipeViewCell.nibRecipeViewCell(), forCellReuseIdentifier: recipeViewCell.identifier)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         fetchRecipes()
         displayingMessageIfFavoritesAreEmpty()
     }
+    
     func displayingMessageIfFavoritesAreEmpty() {
         guard let store = storedRecipes else { return }
         if store.isEmpty {
@@ -27,6 +29,7 @@ final class FavoriteListController: UIViewController {
             messageLabel.isHidden = true
         }
     }
+    
     func fetchRecipes() {
         try? storedRecipes = coreDataManager.fetchingRecipes()
         self.tableView.reloadData()
@@ -37,6 +40,7 @@ final class FavoriteListController: UIViewController {
         descriptionController.selectedRecipe = recipeToSend
     }
 }
+
 extension FavoriteListController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -53,6 +57,7 @@ extension FavoriteListController: UITableViewDelegate, UITableViewDataSource {
         }
         return recipes.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: recipeViewCell.identifier, for: indexPath) as? RecipeViewCell else {
             return UITableViewCell()
@@ -64,18 +69,18 @@ extension FavoriteListController: UITableViewDelegate, UITableViewDataSource {
         cell.settingFavoriteCell(recipe: recipe)
         return cell
     }
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .destructive, title: "Delete") {context, view, completionHandler in
             guard let recipes = self.storedRecipes else {
                 return
             }
+            
             let recipeToRemove = recipes[indexPath.row]
             self.context.delete(recipeToRemove)
-            do {
-                 try self.context.save()
-            } catch {
-                print("error")
-            }
+            
+            try? self.context.save()
+             
             self.fetchRecipes()
         }
         return UISwipeActionsConfiguration(actions: [action])

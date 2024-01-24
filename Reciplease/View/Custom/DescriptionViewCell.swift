@@ -8,6 +8,7 @@ final class DescriptionViewCell: UITableViewCell {
     func settingCell(ingredient: String) {
         ingredientLabel.text = "- " + ingredient
     }
+    
     func errorCalled(error: String) {
         ingredientLabel.text = error
     }

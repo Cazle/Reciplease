@@ -10,17 +10,19 @@ struct APIRequestModel: Decodable {
         case hits
     }
 }
+
 struct Links: Decodable {
     let next: Next
 }
+
 struct Next: Decodable {
     let href: String
-    let title: String
 }
 
 struct Hit: Decodable {
     let recipe: Recipe
 }
+
 struct Recipe: Decodable {
     let label: String
     let images: Images
@@ -30,6 +32,7 @@ struct Recipe: Decodable {
     let calories: Double
     let totalTime: Int?
 }
+
 struct Images: Decodable {
     let regular: Regular
     
@@ -37,10 +40,11 @@ struct Images: Decodable {
         case regular = "REGULAR"
     }
 }
+
 struct Ingredients: Decodable {
-    let text: String
     let food: String
 }
+
 struct Regular: Decodable {
     let url: String
 }

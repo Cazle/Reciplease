@@ -27,16 +27,19 @@ final class CoreDataManager {
             return newRecipe
         }
     }
+    
     func fetchingRecipes() throws -> [RecipeEntity] {
         try context.performAndWait {
             try context.fetch(RecipeEntity.fetchRequest())
         }
     }
+    
     func deletingRecipe(deleting: RecipeEntity) {
         context.performAndWait {
             context.delete(deleting)
         }
     }
+    
     func checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: String) -> Bool {
          context.performAndWait {
             let fetchRequest = RecipeEntity.fetchRequest()
