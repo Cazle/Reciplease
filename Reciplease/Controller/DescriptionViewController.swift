@@ -57,8 +57,6 @@ final class DescriptionViewController: UIViewController {
         if allStore.contains(recipe.label) {
             guard let existingRecipe = store.first(where: {$0.name == recipe.label}) else { return }
             currentRecipe = existingRecipe
-        } else {
-            print("This doesn't exists in the store !")
         }
     }
     

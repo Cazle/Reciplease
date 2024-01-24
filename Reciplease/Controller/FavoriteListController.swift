@@ -28,13 +28,10 @@ final class FavoriteListController: UIViewController {
         }
     }
     func fetchRecipes() {
-        do {
-            try storedRecipes = coreDataManager.fetchingRecipes()
-            self.tableView.reloadData()
-        } catch {
-            print("Something went wrong")
-        }
+        try? storedRecipes = coreDataManager.fetchingRecipes()
+        self.tableView.reloadData()
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "favoriteToDescription", let descriptionController = segue.destination as? FavoriteDescriptionController else { return }
         descriptionController.selectedRecipe = recipeToSend
