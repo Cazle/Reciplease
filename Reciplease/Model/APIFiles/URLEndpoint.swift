@@ -8,14 +8,12 @@ final class URLEndpoint {
         components.host = "api.edamam.com"
         components.path = "/api/recipes/v2"
         
-        let paramaters: [String: Any] = [
-            "type": "public",
-            "q": ingredient.joined(separator: ","),
-            "app_id": "cbfe9715",
-            "app_key": "91e322d3c82707bcc618b8756198ac31"
-        ]
         
-        components.queryItems = paramaters.map { URLQueryItem(name: $0.key, value: "\($0.value)")}
+        components.queryItems = []
+        components.queryItems?.append(.init(name: "type", value: "public"))
+        components.queryItems?.append(.init(name: "q", value: ingredient.joined(separator: ",")))
+        components.queryItems?.append(.init(name: "app_id", value: "cbfe9715"))
+        components.queryItems?.append(.init(name: "app_key", value: "91e322d3c82707bcc618b8756198ac31"))
         
         return components.url!
     }
