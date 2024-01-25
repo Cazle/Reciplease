@@ -19,6 +19,7 @@ final class FavoriteDescriptionController: UIViewController {
     
     override func viewDidLoad() {
        settingDescription()
+        makeAccessibilityComponents()
     }
     
     func settingDescription() {
@@ -36,6 +37,15 @@ final class FavoriteDescriptionController: UIViewController {
             let image = UIImage(data: data)
             self.mealImageView.image = image
         }
+    }
+    
+    func makeAccessibilityComponents() {
+        guard let recipe = selectedRecipe else { return }
+        nameLabel.accessibilityLabel = recipe.name
+        timeLabel.accessibilityLabel = String(recipe.time)
+        caloriesLabel.accessibilityLabel = String(recipe.calories)
+        mealImageView.accessibilityLabel = "Image of the recipe"
+        starButton.accessibilityLabel = "Button to delete the recipe from favorites"
     }
     
     @IBAction func deletingRecipe(_ sender: Any) {

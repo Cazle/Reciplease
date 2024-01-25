@@ -18,6 +18,13 @@ final class RecipeListController: UIViewController {
         super.viewDidLoad()
         backButton()
         tableView.register(RecipeViewCell().nibRecipeViewCell(), forCellReuseIdentifier: RecipeViewCell().identifier)
+        makeAccessibilityComponents()
+    }
+    
+    func makeAccessibilityComponents() {
+        tableView.accessibilityLabel = "All recipes searched"
+        barNavigation.leftBarButtonItem?.accessibilityLabel = "Back button"
+        spinLoader.accessibilityLabel = "Spin loader who appears when recipe are loading"
     }
     
     func backButton() {

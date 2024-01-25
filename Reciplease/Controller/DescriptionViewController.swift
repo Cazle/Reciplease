@@ -4,13 +4,11 @@ import UIKit
 
 final class DescriptionViewController: UIViewController {
     
-    @IBOutlet weak var likesLabel: UILabel!
+    @IBOutlet weak var caloriesLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var mealImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var starButton: UIBarButtonItem!
-    @IBOutlet weak var warningLabel: UILabel!
-    
     
     let context = (UIApplication.shared.delegate as! AppDelegate).backgroundContext
     
@@ -36,11 +34,24 @@ final class DescriptionViewController: UIViewController {
         loadRecipeEntityIfItExistsInTheStore()
     }
     
+    func makeAccessibilityComponents() {
+        guard let recipe = receivedRecipe else { return }
+        guard let time = recipe.totalTime else { return }
+        
+        timeLabel.accessibilityLabel = String(time)
+        caloriesLabel.accessibilityLabel = String(recipe.calories)
+        nameLabel.accessibilityLabel = recipe.label
+        starButton.accessibilityLabel = "Button to add a recipe to favorite"
+        
+    }
+    
     func checkIfRecipeIsInFavorites() {
         guard let nameOfRecipe = receivedRecipe?.label else { return }
         if coreDataManager.checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: nameOfRecipe) {
             setStarIcon(to: "star.fill")
+            starButton.accessibilityLabel = "This recipe is already in favorite"
         } else {
+            starButton.accessibilityLabel = "This recipe is not in favorite"
             setStarIcon(to: "star")
         }
     }
@@ -66,9 +77,11 @@ final class DescriptionViewController: UIViewController {
         if coreDataManager.checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: nameOfRecipe) {
             guard let deletingRecipe = currentRecipe else { return }
             coreDataManager.deletingRecipe(deleting: deletingRecipe)
+            starButton.accessibilityLabel = "Recipe is deleted from the favorites !"
             setStarIcon(to: "star")
         } else {
             setStarIcon(to: "star.fill")
+            starButton.accessibilityLabel = "Recipe is added to the favorites !"
             addRecipe()
         }
         fetchingAllRecipes()
@@ -132,7 +145,7 @@ final class DescriptionViewController: UIViewController {
         guard let receivedCalories = receivedRecipe?.calories else {
             return
         }
-        likesLabel.text = formatAndTime.formattingCalories(receivedCalories)
+        caloriesLabel.text = formatAndTime.formattingCalories(receivedCalories)
     }
     
     func settingTime() {

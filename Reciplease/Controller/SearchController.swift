@@ -33,16 +33,9 @@ final class SearchController: UIViewController {
     
     private func makeAccessibilityComponents() {
         searchBarTextField.accessibilityLabel = "Searching bar to enter your ingredients"
-        searchBarTextField.accessibilityIdentifier = "searchBarTextField"
-        
         tableView.accessibilityLabel = "List of all your ingredients"
-        tableView.accessibilityIdentifier = "tableView"
-        
         errorLabel.accessibilityLabel = "Error, there is something wrong with your ingredients, make sure to enter correct ingredient."
-        errorLabel.accessibilityIdentifier = "errorLabel"
-        
         searchButton.accessibilityLabel = "Button for searching recipes"
-        searchButton.accessibilityIdentifier = "searchButton"
     }
     
     @IBAction func tapAdd(_ sender: Any) {

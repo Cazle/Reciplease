@@ -7,6 +7,7 @@ final class DescriptionFavoriteViewCell: UITableViewCell {
     
     func settingIngredient(named: String) {
         ingredientLabel.text = "- " + named
+        ingredientLabel.accessibilityLabel = named
     }
     
 }

@@ -2,9 +2,10 @@ import UIKit
 
 final class IngredientViewCell: UITableViewCell {
     
-    @IBOutlet weak var IngredientNameLabel: UILabel!
+    @IBOutlet weak var ingredientNameLabel: UILabel!
     
     func settingCell(ingredient: String) {
-        IngredientNameLabel.text = "- " + ingredient
+        ingredientNameLabel.text = "- " + ingredient
+        ingredientNameLabel.accessibilityLabel = ingredient
     }
 }
