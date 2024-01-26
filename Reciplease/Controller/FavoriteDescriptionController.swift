@@ -18,8 +18,19 @@ final class FavoriteDescriptionController: UIViewController {
     lazy var coreDataManager = CoreDataManager(context: context)
     
     override func viewDidLoad() {
-       settingDescription()
+        backButton()
+        settingDescription()
         makeAccessibilityComponents()
+    }
+    
+    func backButton() {
+        let leftButton = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(tapBackButton))
+        navigationItem.leftBarButtonItem = leftButton
+        leftButton.tintColor = .white
+    }
+    
+    @objc func tapBackButton() {
+        navigationController?.popViewController(animated: true)
     }
     
     func settingDescription() {

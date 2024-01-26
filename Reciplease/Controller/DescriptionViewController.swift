@@ -22,6 +22,7 @@ final class DescriptionViewController: UIViewController {
     let cellIdentifier = "descriptionCell"
     
     override func viewDidLoad() {
+        backButton()
         settingName()
         settingImage()
         settingCalories()
@@ -43,6 +44,16 @@ final class DescriptionViewController: UIViewController {
         nameLabel.accessibilityLabel = recipe.label
         starButton.accessibilityLabel = "Button to add a recipe to favorite"
         
+    }
+    
+    func backButton() {
+        let leftButton = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(tapBackButton))
+        navigationItem.leftBarButtonItem = leftButton
+        leftButton.tintColor = .white
+    }
+    
+    @objc func tapBackButton() {
+        navigationController?.popViewController(animated: true)
     }
     
     func checkIfRecipeIsInFavorites() {
