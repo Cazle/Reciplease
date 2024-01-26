@@ -87,4 +87,12 @@ final class CoreDataTests: XCTestCase {
         XCTAssertFalse(recipeDoesNotExists)
         
     }
+    
+    func test_whenTryingToCheckIfThereIsAlreadyARecipeNameButThereIsNoRecipeInStore() {
+       
+        let name = coreDataManager.checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: "Onion")
+        
+        XCTAssertFalse(name)
+    }
+
 }

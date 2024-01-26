@@ -41,15 +41,16 @@ final class CoreDataManager {
     }
     
     func checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: String) -> Bool {
+        var recipeExists = false
          context.performAndWait {
             let fetchRequest = RecipeEntity.fetchRequest()
             let predicate = NSPredicate(format: "name == %@", nameOfRecipe)
             fetchRequest.predicate = predicate
              if let fetchingNames = try? context.fetch(fetchRequest) {
-                 return !fetchingNames.isEmpty
+                 recipeExists = !fetchingNames.isEmpty
              }
-             return false
         }
+        return recipeExists
     }
 }
         
