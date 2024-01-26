@@ -59,6 +59,7 @@ final class CoreDataTests: XCTestCase {
         XCTAssertEqual(fetchedRecipe.first?.ingredientLines, ["300G OF CHICKEN, 300G OF CURRY"])
        
     }
+    
     func test_deletingARecipe() {
         let newRecipe = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
         
@@ -69,6 +70,7 @@ final class CoreDataTests: XCTestCase {
         guard let fetchedRecipe = try? coreDataManager.fetchingRecipes() else { return }
         XCTAssertEqual(fetchedRecipe, [])
     }
+    
     func test_checkingIfARecipeNameAlreadyExists() {
         let _ = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
         
@@ -78,6 +80,7 @@ final class CoreDataTests: XCTestCase {
         XCTAssertTrue(recipeExists)
         
     }
+    
     func test_nameOfRecipeDoesNotExists() {
         let _ = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
     
@@ -89,10 +92,9 @@ final class CoreDataTests: XCTestCase {
     }
     
     func test_whenTryingToCheckIfThereIsAlreadyARecipeNameButThereIsNoRecipeInStore() {
-       
-        let name = coreDataManager.checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: "Onion")
+                
+        let name = coreDataManager.checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: "oui")
         
         XCTAssertFalse(name)
     }
-
 }
