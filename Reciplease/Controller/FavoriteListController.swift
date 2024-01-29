@@ -24,7 +24,7 @@ final class FavoriteListController: UIViewController {
     
     func makeAccessibilityComponents() {
         tableView.accessibilityLabel = "All your recipes in favorites"
-        messageLabel.text = "You don't have any recipes in your favorties ! To add any recipes in your favorites you need to : Search a recipe with your ingredients. Then click on a recipe that you like. And finally, click on the Green Star on the top right of the screen. And tada ! It appears on your favorites !"
+        messageLabel.accessibilityLabel = "You don't have any recipes in your favorties ! To add any recipes in your favorites you need to : Search a recipe with your ingredients. Then click on a recipe that you like. And finally, click on the Green Star on the top right of the screen. And tada ! It appears on your favorites !"
     }
     
     func displayingMessageIfFavoritesAreEmpty() {

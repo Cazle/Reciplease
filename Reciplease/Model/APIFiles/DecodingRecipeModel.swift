@@ -23,11 +23,9 @@ final class DecodingRecipeModel {
     
     func decode(data: Data, response: HTTPURLResponse) -> Result<APIRequestModel, Error> {
         guard response.statusCode == 200 else {
-            print(APIError.invalidStatusCode)
             return .failure(APIError.invalidStatusCode)
         }
         guard let dataDecoded = try? JSONDecoder().decode(APIRequestModel.self, from: data) else {
-            print(APIError.invalidDecoding)
             return .failure(APIError.invalidDecoding)
         }
         return .success(dataDecoded)

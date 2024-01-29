@@ -80,7 +80,7 @@ extension RecipeListController: UITableViewDataSource, UITableViewDelegate {
                     self.tableView.reloadData()
                     self.spinLoader.stopAnimating()
                 case .failure(let error):
-                    print("It has failed... This is why \(error)")
+                    print(error)
                 }
             }
         }

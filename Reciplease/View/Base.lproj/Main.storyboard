@@ -546,6 +546,7 @@
                         <outlet property="nameLabel" destination="EQE-yr-VJq" id="y1C-fT-gdB"/>
                         <outlet property="starButton" destination="ig2-C6-Duj" id="xTr-Dc-lor"/>
                         <outlet property="timeLabel" destination="NWD-hQ-kBM" id="UaY-hh-uGb"/>
+                        <outlet property="websiteButton" destination="B8Z-4G-9O4" id="2Ak-RC-2gs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIa-o0-fG9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -775,6 +776,7 @@
                         <outlet property="nameLabel" destination="4q5-uj-fUn" id="f19-xY-Kw0"/>
                         <outlet property="starButton" destination="QLG-CV-Idd" id="WNf-h9-NFo"/>
                         <outlet property="timeLabel" destination="01K-f1-xjA" id="shw-lM-mY5"/>
+                        <outlet property="websiteButton" destination="yhd-1S-ROI" id="1aR-R7-6dj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yuc-3s-iWz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

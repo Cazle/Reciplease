@@ -8,6 +8,7 @@ final class FavoriteDescriptionController: UIViewController {
     @IBOutlet weak var caloriesLabel: UILabel!
     @IBOutlet weak var mealImageView: UIImageView!
     @IBOutlet weak var starButton: UIBarButtonItem!
+    @IBOutlet weak var websiteButton: UIButton!
     
     let cellIdentifier = "favoriteCell"
     
@@ -57,6 +58,7 @@ final class FavoriteDescriptionController: UIViewController {
         caloriesLabel.accessibilityLabel = String(recipe.calories)
         mealImageView.accessibilityLabel = "Image of the recipe"
         starButton.accessibilityLabel = "Button to delete the recipe from favorites"
+        websiteButton.accessibilityLabel = "Go to recipe website"
     }
     
     @IBAction func deletingRecipe(_ sender: Any) {

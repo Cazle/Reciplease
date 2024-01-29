@@ -9,6 +9,7 @@ final class DescriptionViewController: UIViewController {
     @IBOutlet weak var mealImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var starButton: UIBarButtonItem!
+    @IBOutlet weak var websiteButton: UIButton!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).backgroundContext
     
@@ -42,8 +43,9 @@ final class DescriptionViewController: UIViewController {
         timeLabel.accessibilityLabel = String(time)
         caloriesLabel.accessibilityLabel = String(recipe.calories)
         nameLabel.accessibilityLabel = recipe.label
+        mealImageView.accessibilityLabel = "Image of the recipe"
         starButton.accessibilityLabel = "Button to add a recipe to favorite"
-        
+        websiteButton.accessibilityLabel = "Go to the recipe website"
     }
     
     func backButton() {
