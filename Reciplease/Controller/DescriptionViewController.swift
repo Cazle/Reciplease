@@ -52,6 +52,7 @@ final class DescriptionViewController: UIViewController {
         let leftButton = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(tapBackButton))
         navigationItem.leftBarButtonItem = leftButton
         leftButton.tintColor = .white
+        leftButton.accessibilityLabel = "Back button"
     }
     
     @objc func tapBackButton() {
