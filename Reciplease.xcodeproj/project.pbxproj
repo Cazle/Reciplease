@@ -13,6 +13,7 @@
 		294094832B513D0700F01372 /* FavoriteDescriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294094822B513D0700F01372 /* FavoriteDescriptionController.swift */; };
 		294094852B51492500F01372 /* DescriptionFavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294094842B51492500F01372 /* DescriptionFavoriteViewCell.swift */; };
 		2961524B2B627D1D00E72F08 /* URLEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2961524A2B627D1D00E72F08 /* URLEndpointTests.swift */; };
+		2961524D2B693B6D00E72F08 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2961524C2B693B6D00E72F08 /* AlertVC.swift */; };
 		2989C4B52B5A9D7200136597 /* FakeJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2989C4B42B5A9D7200136597 /* FakeJSON.swift */; };
 		2989C4B72B5E74D200136597 /* IngredientStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2989C4B62B5E74D200136597 /* IngredientStoreTests.swift */; };
 		2989C4B92B5E769F00136597 /* CaloriesAndTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2989C4B82B5E769F00136597 /* CaloriesAndTimeTests.swift */; };
@@ -60,6 +61,7 @@
 		294094822B513D0700F01372 /* FavoriteDescriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDescriptionController.swift; sourceTree = "<group>"; };
 		294094842B51492500F01372 /* DescriptionFavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionFavoriteViewCell.swift; sourceTree = "<group>"; };
 		2961524A2B627D1D00E72F08 /* URLEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEndpointTests.swift; sourceTree = "<group>"; };
+		2961524C2B693B6D00E72F08 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
 		2989C4B42B5A9D7200136597 /* FakeJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeJSON.swift; sourceTree = "<group>"; };
 		2989C4B62B5E74D200136597 /* IngredientStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientStoreTests.swift; sourceTree = "<group>"; };
 		2989C4B82B5E769F00136597 /* CaloriesAndTimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesAndTimeTests.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				2940947A2B4FFA0400F01372 /* TabBarController.swift */,
 				2940947C2B5000D100F01372 /* FavoriteListController.swift */,
 				294094822B513D0700F01372 /* FavoriteDescriptionController.swift */,
+				2961524C2B693B6D00E72F08 /* AlertVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				29A078CD2B441B9A005CFF54 /* DescriptionViewCell.swift in Sources */,
 				294094792B4D87FB00F01372 /* CoreDataManager.swift in Sources */,
 				29A078982B334E98005CFF54 /* RecipeListController.swift in Sources */,
+				2961524D2B693B6D00E72F08 /* AlertVC.swift in Sources */,
 				298CC0E32B21BA0000F28F96 /* SearchController.swift in Sources */,
 				29A078962B32F085005CFF54 /* APIError.swift in Sources */,
 				29A078C42B3DDEF0005CFF54 /* RecipeViewCell.swift in Sources */,

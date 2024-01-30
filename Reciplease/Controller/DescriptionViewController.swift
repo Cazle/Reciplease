@@ -40,12 +40,23 @@ final class DescriptionViewController: UIViewController {
         guard let recipe = receivedRecipe else { return }
         guard let time = recipe.totalTime else { return }
         
-        timeLabel.accessibilityLabel = String(time)
-        caloriesLabel.accessibilityLabel = String(recipe.calories)
-        nameLabel.accessibilityLabel = recipe.label
+        timeLabel.accessibilityLabel = "Preparation time of the recipe"
+        timeLabel.accessibilityValue = String(time)
+        
+        caloriesLabel.accessibilityLabel = "Calories of the recipe"
+        caloriesLabel.accessibilityValue = String(recipe.calories)
+        
+        nameLabel.accessibilityLabel = "Name of the recipe"
+        nameLabel.accessibilityValue = recipe.label
+        
         mealImageView.accessibilityLabel = "Image of the recipe"
-        starButton.accessibilityLabel = "Button to add a recipe to favorite"
+        mealImageView.accessibilityTraits = .image
+        
+        starButton.accessibilityLabel = "Button to add or delete a recipe to favorite"
+        starButton.accessibilityTraits = .button
+        
         websiteButton.accessibilityLabel = "Go to the recipe website"
+        websiteButton.accessibilityTraits = .button
     }
     
     func backButton() {
@@ -63,15 +74,22 @@ final class DescriptionViewController: UIViewController {
         guard let nameOfRecipe = receivedRecipe?.label else { return }
         if coreDataManager.checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: nameOfRecipe) {
             setStarIcon(to: "star.fill")
-            starButton.accessibilityLabel = "This recipe is already in favorite"
+            starButton.accessibilityValue = "This recipe is already in favorite"
+            starButton.accessibilityTraits = .selected
         } else {
-            starButton.accessibilityLabel = "This recipe is not in favorite"
+            starButton.accessibilityValue = "This recipe is not in favorite"
+            starButton.accessibilityTraits = .none
             setStarIcon(to: "star")
         }
     }
     
     func fetchingAllRecipes() {
-        try? storedRecipes = coreDataManager.fetchingRecipes()
+        do {
+            try storedRecipes = coreDataManager.fetchingRecipes()
+        } catch {
+            presentAlert(message: "Error occured. Failed to fetch recipes.")
+        }
+        
     }
     
     func loadRecipeEntityIfItExistsInTheStore() {
@@ -91,11 +109,11 @@ final class DescriptionViewController: UIViewController {
         if coreDataManager.checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: nameOfRecipe) {
             guard let deletingRecipe = currentRecipe else { return }
             coreDataManager.deletingRecipe(deleting: deletingRecipe)
-            starButton.accessibilityLabel = "Recipe is deleted from the favorites !"
+            starButton.accessibilityValue = "Recipe is deleted from the favorites !"
             setStarIcon(to: "star")
         } else {
             setStarIcon(to: "star.fill")
-            starButton.accessibilityLabel = "Recipe is added to the favorites !"
+            starButton.accessibilityValue = "Recipe is added to the favorites !"
             addRecipe()
         }
         fetchingAllRecipes()
@@ -116,8 +134,12 @@ final class DescriptionViewController: UIViewController {
             ingredientLines: recipe.ingredientLines)
         
             currentRecipe = newRecipe
-    
-            try? context.save()
+        do {
+            try context.save()
+        } catch {
+            presentAlert(message: "Error occured. Can't save the recipe.")
+        }
+            
     }
     
     
@@ -189,6 +211,7 @@ extension DescriptionViewController: UITableViewDataSource, UITableViewDelegate 
             return cell
         }
         let allIngredients = ingredientList[indexPath.row]
+        
         cell.settingCell(ingredient: allIngredients)
         
         return cell

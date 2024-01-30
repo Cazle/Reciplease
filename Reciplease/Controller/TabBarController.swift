@@ -16,8 +16,11 @@ final class TabBarController: UITabBarController {
             return
         }
         
-        items[0].accessibilityLabel = "Search"
-        items[1].accessibilityLabel = "Favorite"
+        items[0].accessibilityLabel = "Go to search page"
+        items[0].accessibilityTraits = .button
+        
+        items[1].accessibilityLabel = "Go to favorite page"
+        items[1].accessibilityTraits = .button
         
         for item in items {
             item.setTitleTextAttributes([NSAttributedString.Key.font: normalFont], for: .normal)

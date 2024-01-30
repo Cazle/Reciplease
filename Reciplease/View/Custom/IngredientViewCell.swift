@@ -7,5 +7,6 @@ final class IngredientViewCell: UITableViewCell {
     func settingCell(ingredient: String) {
         ingredientNameLabel.text = "- " + ingredient
         ingredientNameLabel.accessibilityLabel = ingredient
+        ingredientNameLabel.accessibilityValue = ingredient
     }
 }

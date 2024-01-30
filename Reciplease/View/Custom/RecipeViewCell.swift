@@ -25,7 +25,7 @@ final class RecipeViewCell: UITableViewCell {
         let ingredients = getIngredients.map {$0.food}.joined(separator: ", ")
         
         let regularImage = recipe.images.regular.url
-        guard let urlImage = URL(string: regularImage) else {return}
+        guard let urlImage = URL(string: regularImage) else { return }
         
         nameLabel.text = recipe.label
         caloriesLabel.text = formatAndTime.formattingCalories(getCalories)
@@ -39,16 +39,24 @@ final class RecipeViewCell: UITableViewCell {
             self.mealImageView.image = image
         }
         
-        nameLabel.accessibilityLabel = recipe.label
-        ingredientLabel.accessibilityLabel = "Ingredients :\(recipe.ingredients.map{$0.food})"
-        caloriesLabel.accessibilityLabel = "Number of calories: \(recipe.calories)"
-        timeLabel.accessibilityLabel = "Time needed for recipe: \(recipe.totalTime ?? 0)"
+        nameLabel.accessibilityLabel = "Name of the recipe"
+        nameLabel.accessibilityValue = recipe.label
+        
+        ingredientLabel.accessibilityLabel = "All the ingredients"
+        ingredientLabel.accessibilityValue = "Ingredients :\(recipe.ingredients.map{$0.food})"
+        
+        caloriesLabel.accessibilityLabel = "Calories of the recipe"
+        caloriesLabel.accessibilityValue = "Number of calories: \(recipe.calories)"
+        
+        timeLabel.accessibilityLabel = "Preparation time of the recipe"
+        timeLabel.accessibilityValue = "Time needed for recipe: \(recipe.totalTime ?? 0)"
     }
     
     func settingFavoriteCell(recipe: RecipeEntity) {
         guard let getIngredients = recipe.ingredients else {
             return
         }
+        
         let time = Int(recipe.time)
         let ingredients = getIngredients.map {$0}.joined(separator: ", ")
         
@@ -57,17 +65,26 @@ final class RecipeViewCell: UITableViewCell {
         caloriesLabel.text = formatAndTime.formattingCalories(recipe.calories)
         timeLabel.text = formatAndTime.formatingHoursAndMinutes(time: time)
         
-        nameLabel.accessibilityLabel = recipe.name
-        ingredientLabel.accessibilityLabel = ingredients
-        caloriesLabel.accessibilityLabel = String(recipe.calories)
-        timeLabel.accessibilityLabel = String(recipe.time)
+        nameLabel.accessibilityLabel = "Name of the recipe"
+        nameLabel.accessibilityValue = recipe.name
+        
+        ingredientLabel.accessibilityLabel = "All the ingredients"
+        ingredientLabel.accessibilityValue = ingredients
+        
+        caloriesLabel.accessibilityLabel = "Calories of the recipe"
+        caloriesLabel.accessibilityValue = String(recipe.calories)
+        
+        timeLabel.accessibilityLabel = "Preparation time of the recipe"
+        timeLabel.accessibilityValue = String(recipe.time)
         
         guard let regularImage = recipe.urlImage else {
             return
         }
+        
         guard let urlImage = URL(string: regularImage) else {
             return
         }
+        
         apiHandler.request(url: urlImage) {data, response in
             guard let data = data else { return }
             let image = UIImage(data: data)

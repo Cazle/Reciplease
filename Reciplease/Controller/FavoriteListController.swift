@@ -24,6 +24,7 @@ final class FavoriteListController: UIViewController {
     
     func makeAccessibilityComponents() {
         tableView.accessibilityLabel = "All your recipes in favorites"
+        
         messageLabel.accessibilityLabel = "You don't have any recipes in your favorties ! To add any recipes in your favorites you need to : Search a recipe with your ingredients. Then click on a recipe that you like. And finally, click on the Green Star on the top right of the screen. And tada ! It appears on your favorites !"
     }
     
@@ -37,8 +38,13 @@ final class FavoriteListController: UIViewController {
     }
     
     func fetchRecipes() {
-        try? storedRecipes = coreDataManager.fetchingRecipes()
-        self.tableView.reloadData()
+        do {
+            try storedRecipes = coreDataManager.fetchingRecipes()
+            self.tableView.reloadData()
+        } catch {
+            presentAlert(message: "Error occured. Failed to fetch recipes.")
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -72,6 +78,9 @@ extension FavoriteListController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         let recipe = storedRecipe[indexPath.row]
+        
+        cell.accessibilityHint = "Tap one time, to access the recipe"
+        
         cell.settingFavoriteCell(recipe: recipe)
         return cell
     }
@@ -85,7 +94,13 @@ extension FavoriteListController: UITableViewDelegate, UITableViewDataSource {
             let recipeToRemove = recipes[indexPath.row]
             self.context.delete(recipeToRemove)
             
-            try? self.context.save()
+            do {
+                try self.context.save()
+            } catch {
+                self.presentAlert(message: "Error occured. Can't delete the recipe.")
+            }
+            
+            
              
             self.fetchRecipes()
         }

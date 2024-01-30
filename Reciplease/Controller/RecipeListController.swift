@@ -23,7 +23,10 @@ final class RecipeListController: UIViewController {
     
     func makeAccessibilityComponents() {
         tableView.accessibilityLabel = "All recipes searched"
+        
         barNavigation.leftBarButtonItem?.accessibilityLabel = "Back button"
+        barNavigation.leftBarButtonItem?.accessibilityTraits = .button
+        
         spinLoader.accessibilityLabel = "Spin loader who appears when recipe are loading"
     }
     
@@ -60,6 +63,9 @@ extension RecipeListController: UITableViewDataSource, UITableViewDelegate {
         }
         
         let recipe = recipes[indexPath.row].recipe
+        
+        cell.accessibilityHint = "Tap one time, to access the recipe"
+        
         cell.settingRecipeCell(recipe: recipe)
         
         return cell

@@ -7,6 +7,8 @@ final class SearchController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton!
     
     let ingredientStore = IngredientStore()
     let recipeHandler = DecodingRecipeModel()
@@ -33,9 +35,20 @@ final class SearchController: UIViewController {
     
     private func makeAccessibilityComponents() {
         searchBarTextField.accessibilityLabel = "Searching bar to enter your ingredients"
+        searchBarTextField.accessibilityTraits = .searchField
+        searchBarTextField.accessibilityHint = "Tap one time on the search bar, to enter ingredients"
+        
         tableView.accessibilityLabel = "List of all your ingredients"
+        
         errorLabel.accessibilityLabel = "Error, there is something wrong with your ingredients, make sure to enter correct ingredient."
+        
         searchButton.accessibilityLabel = "Button for searching recipes"
+        searchButton.accessibilityTraits = .button
+        searchButton.accessibilityHint = "Once you've entered your ingredients, tap once to search recipes"
+        
+        addButton.accessibilityLabel = "Button to add ingredients"
+        addButton.accessibilityTraits = .button
+        addButton.accessibilityHint = "Tap once to clear all your ingredients list"
     }
     
     @IBAction func tapAdd(_ sender: Any) {

@@ -53,12 +53,24 @@ final class FavoriteDescriptionController: UIViewController {
     
     func makeAccessibilityComponents() {
         guard let recipe = selectedRecipe else { return }
-        nameLabel.accessibilityLabel = recipe.name
-        timeLabel.accessibilityLabel = String(recipe.time)
-        caloriesLabel.accessibilityLabel = String(recipe.calories)
+        
+        nameLabel.accessibilityLabel = "Name of the recipe"
+        nameLabel.accessibilityValue = recipe.name
+        
+        timeLabel.accessibilityLabel = "Preparation time of the recipe"
+        timeLabel.accessibilityValue = String(recipe.time)
+        
+        caloriesLabel.accessibilityLabel = "Calories of the recipe"
+        caloriesLabel.accessibilityValue = String(recipe.calories)
+        
         mealImageView.accessibilityLabel = "Image of the recipe"
+        mealImageView.accessibilityTraits = .image
+        
         starButton.accessibilityLabel = "Button to delete the recipe from favorites"
+        starButton.accessibilityTraits = .button
+        
         websiteButton.accessibilityLabel = "Go to recipe website"
+        websiteButton.accessibilityTraits = .button
     }
     
     @IBAction func deletingRecipe(_ sender: Any) {
@@ -96,6 +108,7 @@ extension FavoriteDescriptionController: UITableViewDelegate, UITableViewDataSou
         guard let ingredients = recipe.ingredientLines else {return UITableViewCell()}
         
         let listOfIngredients = ingredients[indexPath.row]
+        
         cell.settingIngredient(named: listOfIngredients)
         
         return cell
