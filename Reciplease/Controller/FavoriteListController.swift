@@ -80,6 +80,8 @@ extension FavoriteListController: UITableViewDelegate, UITableViewDataSource {
         let recipe = storedRecipe[indexPath.row]
         
         cell.accessibilityHint = "Tap one time, to access the recipe"
+        cell.accessibilityTraits = .button
+        cell.accessibilityLabel = "Cell containing recipe"
         
         cell.settingFavoriteCell(recipe: recipe)
         return cell

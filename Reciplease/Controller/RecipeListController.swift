@@ -65,6 +65,8 @@ extension RecipeListController: UITableViewDataSource, UITableViewDelegate {
         let recipe = recipes[indexPath.row].recipe
         
         cell.accessibilityHint = "Tap one time, to access the recipe"
+        cell.accessibilityTraits = .button
+        cell.accessibilityLabel = "Cell containing recipe"
         
         cell.settingRecipeCell(recipe: recipe)
         

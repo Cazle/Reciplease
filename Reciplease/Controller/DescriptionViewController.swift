@@ -52,11 +52,13 @@ final class DescriptionViewController: UIViewController {
         mealImageView.accessibilityLabel = "Image of the recipe"
         mealImageView.accessibilityTraits = .image
         
-        starButton.accessibilityLabel = "Button to add or delete a recipe to favorite"
+        starButton.accessibilityLabel = "Favorite button"
         starButton.accessibilityTraits = .button
+        starButton.accessibilityHint = "Tap to add or delete a recipe in favorite"
         
         websiteButton.accessibilityLabel = "Go to the recipe website"
         websiteButton.accessibilityTraits = .button
+        websiteButton.accessibilityHint = "Tap to go to the recipe website"
     }
     
     func backButton() {

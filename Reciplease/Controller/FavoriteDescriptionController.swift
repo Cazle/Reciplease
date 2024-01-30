@@ -66,11 +66,13 @@ final class FavoriteDescriptionController: UIViewController {
         mealImageView.accessibilityLabel = "Image of the recipe"
         mealImageView.accessibilityTraits = .image
         
-        starButton.accessibilityLabel = "Button to delete the recipe from favorites"
+        starButton.accessibilityLabel = "Button to delete"
         starButton.accessibilityTraits = .button
+        starButton.accessibilityHint = "Tap to delete the current recipe"
         
         websiteButton.accessibilityLabel = "Go to recipe website"
         websiteButton.accessibilityTraits = .button
+        websiteButton.accessibilityHint = "Tap to go on the recipe website"
     }
     
     @IBAction func deletingRecipe(_ sender: Any) {
