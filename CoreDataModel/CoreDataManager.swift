@@ -64,14 +64,13 @@ final class CoreDataManager {
         var recipeEntity: RecipeEntity?
         
             context.performAndWait {
+                
                 let fetchRequest = RecipeEntity.fetchRequest()
                 let predicate = NSPredicate(format: "name == %@", recipeName)
                 fetchRequest.predicate = predicate
-                do {
-                    let fetchedRecipes = try context.fetch(fetchRequest)
+                
+                if let fetchedRecipes = try? context.fetch(fetchRequest) {
                     recipeEntity = fetchedRecipes.first
-                } catch {
-                    print("Error: \(error)")
                 }
             }
             return recipeEntity

@@ -92,6 +92,21 @@ final class CoreDataTests: XCTestCase {
         
     }
     
+    func test_loadTheCurrentRecipeFromTheStore() {
+        
+        let recipe: RecipeEntity?
+        
+        let chickenRecipe = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
+        
+        let curryRecipe = coreDataManager.addingNewRecipe(recipe: nil, name: "Curry", calories: 700, time: 45, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["curry"], ingredientLines: ["300G OF CURRY"])
+        
+        try? coreDataManager.savingContext()
+        
+        recipe = coreDataManager.loadTheCurrentRecipeFromTheStore(recipeName: curryRecipe.name ?? "")
+        
+        XCTAssertEqual(recipe?.name, "Curry")
+    }
+    
     func test_nameOfRecipeDoesNotExists() {
         let _ = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
     
