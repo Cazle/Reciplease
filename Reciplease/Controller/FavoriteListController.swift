@@ -86,23 +86,23 @@ extension FavoriteListController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .destructive, title: "Delete") {context, view, completionHandler in
-            guard let recipes = self.storedRecipes else {
+        let action = UIContextualAction(style: .destructive, title: "Delete") {[weak self] context, view, completionHandler in
+            guard let recipes = self?.storedRecipes else {
                 return
             }
             
             let recipeToRemove = recipes[indexPath.row]
-            self.coreDataManager.deletingRecipe(deleting: recipeToRemove)
+            self?.coreDataManager.deletingRecipe(deleting: recipeToRemove)
             
             do {
-                try self.coreDataManager.savingContext()
+                try self?.coreDataManager.savingContext()
             } catch {
-                self.presentAlert(message: "Error occured. Can't delete the recipe.")
+                self?.presentAlert(message: "Error occured. Can't delete the recipe.")
             }
             
             
              
-            self.fetchRecipes()
+            self?.fetchRecipes()
         }
         return UISwipeActionsConfiguration(actions: [action])
     }

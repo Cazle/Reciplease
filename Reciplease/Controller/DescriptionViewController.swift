@@ -125,7 +125,7 @@ final class DescriptionViewController: UIViewController {
         guard let recipe = receivedRecipe else {
             return
         }
-        let newRecipe = coreDataManager.addingNewRecipe(
+        let _ = coreDataManager.addingNewRecipe(
             recipe: recipe,
             name: recipe.label,
             calories: recipe.calories,
