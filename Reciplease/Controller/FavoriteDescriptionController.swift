@@ -13,15 +13,20 @@ final class FavoriteDescriptionController: UIViewController {
     let cellIdentifier = "favoriteCell"
     
     var selectedRecipe: RecipeEntity?
+    var storedRecipes: [RecipeEntity]?
     let formatAndTime = CaloriesAndTime()
     let apiHandler = APIHandler()
-    let context = (UIApplication.shared.delegate as! AppDelegate).backgroundContext
-    lazy var coreDataManager = CoreDataManager(context: context)
+    let coreDataManager = CoreDataManager()
     
     override func viewDidLoad() {
         backButton()
         settingDescription()
         makeAccessibilityComponents()
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        fetchingRecipes()
+        loadTheRecipeToDeleteIt()
     }
     
     func backButton() {
@@ -34,22 +39,7 @@ final class FavoriteDescriptionController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    func settingDescription() {
-        guard let time = selectedRecipe?.time else { return }
-        guard let calories = selectedRecipe?.calories else { return }
-        guard let urlImage = selectedRecipe?.urlImage else { return }
-        guard let url = URL(string: urlImage) else { return }
-        
-        nameLabel.text = selectedRecipe?.name
-        timeLabel.text = formatAndTime.formatingHoursAndMinutes(time: Int(time))
-        caloriesLabel.text = formatAndTime.formattingCalories(calories)
-        
-        apiHandler.request(url: url) {data, response in
-            guard let data = data else { return }
-            let image = UIImage(data: data)
-            self.mealImageView.image = image
-        }
-    }
+    
     
     func makeAccessibilityComponents() {
         guard let recipe = selectedRecipe else { return }
@@ -75,11 +65,49 @@ final class FavoriteDescriptionController: UIViewController {
         websiteButton.accessibilityHint = "Tap to go on the recipe website"
     }
     
+    func fetchingRecipes() {
+        do {
+            try storedRecipes = coreDataManager.fetchingRecipes()
+        } catch {
+            presentAlert(message: "An error occured")
+        }
+        
+    }
+    
+    func loadTheRecipeToDeleteIt() {
+        guard let name = selectedRecipe?.name else { return }
+        selectedRecipe = coreDataManager.loadTheCurrentRecipeFromTheStore(recipeName: name)
+    }
+    
+    func settingDescription() {
+        guard let time = selectedRecipe?.time else { return }
+        guard let calories = selectedRecipe?.calories else { return }
+        guard let urlImage = selectedRecipe?.urlImage else { return }
+        guard let url = URL(string: urlImage) else { return }
+        
+        nameLabel.text = selectedRecipe?.name
+        timeLabel.text = formatAndTime.formatingHoursAndMinutes(time: Int(time))
+        caloriesLabel.text = formatAndTime.formattingCalories(calories)
+        
+        apiHandler.request(url: url) {[weak self] data, response in
+            guard let data = data else { return }
+            let image = UIImage(data: data)
+            self?.mealImageView.image = image
+        }
+    }
+    
     @IBAction func deletingRecipe(_ sender: Any) {
         guard let recipeToDelete = selectedRecipe else {
             return
         }
         coreDataManager.deletingRecipe(deleting: recipeToDelete)
+        
+        do {
+            try coreDataManager.savingContext()
+        } catch {
+            presentAlert(message: "An error occured")
+        }
+        
         let _ = navigationController?.popViewController(animated: true)
     }
     

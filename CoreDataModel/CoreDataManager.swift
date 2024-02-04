@@ -6,7 +6,7 @@ final class CoreDataManager {
     let context: NSManagedObjectContext
     
     
-    init(context: NSManagedObjectContext) {
+    init(context: NSManagedObjectContext = AppDelegate().backgroundContext) {
         self.context = context
     }
     
@@ -40,6 +40,12 @@ final class CoreDataManager {
         }
     }
     
+    func savingContext() throws {
+        try context.performAndWait {
+            try context.save()
+        }
+    }
+    
     func checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: String) -> Bool {
         var isExisting = false
         
@@ -52,6 +58,23 @@ final class CoreDataManager {
              }
         }
         return isExisting
+    }
+    
+    func loadTheCurrentRecipeFromTheStore(recipeName: String) -> RecipeEntity? {
+        var recipeEntity: RecipeEntity?
+        
+            context.performAndWait {
+                let fetchRequest = RecipeEntity.fetchRequest()
+                let predicate = NSPredicate(format: "name == %@", recipeName)
+                fetchRequest.predicate = predicate
+                do {
+                    let fetchedRecipes = try context.fetch(fetchRequest)
+                    recipeEntity = fetchedRecipes.first
+                } catch {
+                    print("Error: \(error)")
+                }
+            }
+            return recipeEntity
     }
 }
         

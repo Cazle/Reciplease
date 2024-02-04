@@ -1,7 +1,7 @@
 @testable import Reciplease
 import Foundation
 
-final class APICallStub: APICall{
+final class APICallStub: APICall {
  
     let result: (Data?, HTTPURLResponse?)
     

@@ -1,5 +1,4 @@
 import Foundation
-import CoreData
 import UIKit
 
 final class FavoriteListController: UIViewController {
@@ -8,9 +7,8 @@ final class FavoriteListController: UIViewController {
     
     var storedRecipes: [RecipeEntity]?
     var recipeToSend: RecipeEntity?
-    let context = (UIApplication.shared.delegate as! AppDelegate).backgroundContext
     let recipeViewCell = RecipeViewCell()
-    lazy var coreDataManager = CoreDataManager(context: context)
+    let coreDataManager = CoreDataManager()
    
     override func viewDidLoad() {
         tableView.register(recipeViewCell.nibRecipeViewCell(), forCellReuseIdentifier: recipeViewCell.identifier)
@@ -94,10 +92,10 @@ extension FavoriteListController: UITableViewDelegate, UITableViewDataSource {
             }
             
             let recipeToRemove = recipes[indexPath.row]
-            self.context.delete(recipeToRemove)
+            self.coreDataManager.deletingRecipe(deleting: recipeToRemove)
             
             do {
-                try self.context.save()
+                try self.coreDataManager.savingContext()
             } catch {
                 self.presentAlert(message: "Error occured. Can't delete the recipe.")
             }

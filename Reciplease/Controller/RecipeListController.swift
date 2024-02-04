@@ -81,13 +81,13 @@ extension RecipeListController: UITableViewDataSource, UITableViewDelegate {
             
             guard let urlNext = nextLink?.href, let url = URL(string: urlNext) else { return }
             
-            decodingCall.requestRecipe(url: url) {response in
+            decodingCall.requestRecipe(url: url) {[weak self] response in
                 switch response {
                 case let .success(newHit):
-                    self.nextLink = newHit.links.next
-                    self.recipes.append(contentsOf: newHit.hits)
-                    self.tableView.reloadData()
-                    self.spinLoader.stopAnimating()
+                    self?.nextLink = newHit.links.next
+                    self?.recipes.append(contentsOf: newHit.hits)
+                    self?.tableView.reloadData()
+                    self?.spinLoader.stopAnimating()
                 case .failure(let error):
                     print(error)
                 }
@@ -95,3 +95,4 @@ extension RecipeListController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 }
+

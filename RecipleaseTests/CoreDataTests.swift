@@ -37,7 +37,7 @@ final class CoreDataTests: XCTestCase {
         
         let _ = coreDataManager.addingNewRecipe(recipe: nil, name: "Curry", calories: 700, time: 45, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["curry"], ingredientLines: ["300G OF CURRY"])
         
-        try? coreDataManager.context.save()
+        try? coreDataManager.savingContext()
        
         guard let fetchedRecipe = try? coreDataManager.fetchingRecipes() else { return }
         XCTAssertEqual(fetchedRecipe.count, 2)
@@ -47,7 +47,7 @@ final class CoreDataTests: XCTestCase {
         
         let _ = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
         
-        try? coreDataManager.context.save()
+        try? coreDataManager.savingContext()
        
         
         guard let fetchedRecipe = try? coreDataManager.fetchingRecipes() else { return }
@@ -63,7 +63,7 @@ final class CoreDataTests: XCTestCase {
     func test_deletingARecipe() {
         let newRecipe = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
         
-        try? coreDataManager.context.save()
+        try? coreDataManager.savingContext()
        
         coreDataManager.deletingRecipe(deleting: newRecipe)
         
@@ -71,10 +71,21 @@ final class CoreDataTests: XCTestCase {
         XCTAssertEqual(fetchedRecipe, [])
     }
     
+    func test_savingContext() {
+        let _ = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
+        
+        try? coreDataManager.savingContext()
+        
+        guard let fetchedRecipes = try? coreDataManager.fetchingRecipes() else { return }
+        
+        XCTAssertFalse(fetchedRecipes.isEmpty)
+        
+    }
+    
     func test_checkingIfARecipeNameAlreadyExists() {
         let _ = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
         
-        try? coreDataManager.context.save()
+        try? coreDataManager.savingContext()
     
         let recipeExists =  coreDataManager.checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: "Chicken")
         XCTAssertTrue(recipeExists)
@@ -84,7 +95,7 @@ final class CoreDataTests: XCTestCase {
     func test_nameOfRecipeDoesNotExists() {
         let _ = coreDataManager.addingNewRecipe(recipe: nil, name: "Chicken", calories: 800, time: 30, url: "URL RECIPE", urlImage: "URL IMAGE", ingredients: ["Chicken and curry"], ingredientLines: ["300G OF CHICKEN, 300G OF CURRY"])
     
-        try? coreDataManager.context.save()
+        try? coreDataManager.savingContext()
         
         let recipeDoesNotExists =  coreDataManager.checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: "Tomato")
         XCTAssertFalse(recipeDoesNotExists)

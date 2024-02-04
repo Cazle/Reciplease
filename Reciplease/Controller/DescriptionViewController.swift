@@ -1,5 +1,4 @@
 import Foundation
-import CoreData
 import UIKit
 
 final class DescriptionViewController: UIViewController {
@@ -11,14 +10,12 @@ final class DescriptionViewController: UIViewController {
     @IBOutlet weak var starButton: UIBarButtonItem!
     @IBOutlet weak var websiteButton: UIButton!
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).backgroundContext
-    
     let apiHandler = APIHandler()
     let formatAndTime = CaloriesAndTime()
     var receivedRecipe: Recipe?
     var storedRecipes: [RecipeEntity]?
     var currentRecipe: RecipeEntity?
-    lazy var coreDataManager = CoreDataManager(context: context)
+    let coreDataManager = CoreDataManager()
     
     let cellIdentifier = "descriptionCell"
     
@@ -95,14 +92,8 @@ final class DescriptionViewController: UIViewController {
     }
     
     func loadRecipeEntityIfItExistsInTheStore() {
-        guard let recipe = receivedRecipe else { return }
-        guard let store = storedRecipes else { return }
-        let allStore = store.map{$0.name}
-        
-        if allStore.contains(recipe.label) {
-            guard let existingRecipe = store.first(where: {$0.name == recipe.label}) else { return }
-            currentRecipe = existingRecipe
-        }
+        guard let recipe = receivedRecipe?.label else { return }
+        currentRecipe = coreDataManager.loadTheCurrentRecipeFromTheStore(recipeName: recipe)
     }
     
     @IBAction func handlingStoredRecipe(_ sender: Any) {
@@ -137,7 +128,7 @@ final class DescriptionViewController: UIViewController {
         
             currentRecipe = newRecipe
         do {
-            try context.save()
+            try coreDataManager.savingContext()
         } catch {
             presentAlert(message: "Error occured. Can't save the recipe.")
         }

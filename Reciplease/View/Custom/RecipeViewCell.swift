@@ -33,6 +33,8 @@ final class RecipeViewCell: UITableViewCell {
         
         ingredientLabel.text = ingredients
         
+        mealImageView.image = nil
+        
         apiHandler.request(url: urlImage) {data, response in
             guard let data = data else { return }
             let image = UIImage(data: data)
@@ -84,6 +86,8 @@ final class RecipeViewCell: UITableViewCell {
         guard let urlImage = URL(string: regularImage) else {
             return
         }
+        
+        mealImageView.image = nil
         
         apiHandler.request(url: urlImage) {data, response in
             guard let data = data else { return }
