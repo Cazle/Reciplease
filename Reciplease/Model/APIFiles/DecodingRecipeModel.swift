@@ -17,6 +17,9 @@ final class DecodingRecipeModel {
             guard let response = response else {
                 return completion(.failure(APIError.invalidResponse))
             }
+            guard response.statusCode == 200 else {
+                return completion(.failure(APIError.invalidStatusCode))
+            }
             DispatchQueue.global(qos: .background).async {
                let result = self.decode(data: data, response: response)
                 DispatchQueue.main.async {
@@ -27,9 +30,6 @@ final class DecodingRecipeModel {
     }
     
     func decode(data: Data, response: HTTPURLResponse) -> Result<APIRequestModel, Error> {
-        guard response.statusCode == 200 else {
-            return .failure(APIError.invalidStatusCode)
-        }
         guard let dataDecoded = try? JSONDecoder().decode(APIRequestModel.self, from: data) else {
             return .failure(APIError.invalidDecoding)
         }
