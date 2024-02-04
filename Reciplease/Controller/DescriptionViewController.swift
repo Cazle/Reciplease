@@ -1,4 +1,5 @@
 import Foundation
+import CoreData
 import UIKit
 
 final class DescriptionViewController: UIViewController {
@@ -9,6 +10,7 @@ final class DescriptionViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var starButton: UIBarButtonItem!
     @IBOutlet weak var websiteButton: UIButton!
+    
     
     let apiHandler = APIHandler()
     let formatAndTime = CaloriesAndTime()
@@ -92,8 +94,8 @@ final class DescriptionViewController: UIViewController {
     }
     
     func loadRecipeEntityIfItExistsInTheStore() {
-        guard let recipe = receivedRecipe?.label else { return }
-        currentRecipe = coreDataManager.loadTheCurrentRecipeFromTheStore(recipeName: recipe)
+        guard let recipe = receivedRecipe else { return }
+        currentRecipe = coreDataManager.loadTheCurrentRecipeFromTheStore(recipeName: recipe.label)
     }
     
     @IBAction func handlingStoredRecipe(_ sender: Any) {
@@ -102,6 +104,13 @@ final class DescriptionViewController: UIViewController {
         if coreDataManager.checkingIfRecipeIsAlreadyInFavorites(nameOfRecipe: nameOfRecipe) {
             guard let deletingRecipe = currentRecipe else { return }
             coreDataManager.deletingRecipe(deleting: deletingRecipe)
+            
+            do {
+                try coreDataManager.savingContext()
+            } catch {
+                presentAlert(message: "An error occured")
+            }
+            
             starButton.accessibilityValue = "Recipe is deleted from the favorites !"
             setStarIcon(to: "star")
         } else {
@@ -126,7 +135,7 @@ final class DescriptionViewController: UIViewController {
             ingredients: recipe.ingredients.map{$0.food},
             ingredientLines: recipe.ingredientLines)
         
-            currentRecipe = newRecipe
+            currentRecipe = coreDataManager.loadTheCurrentRecipeFromTheStore(recipeName: recipe.label)
         do {
             try coreDataManager.savingContext()
         } catch {
@@ -163,10 +172,10 @@ final class DescriptionViewController: UIViewController {
             return
         }
         
-        apiHandler.request(url: urlImage) {data, response in
+        apiHandler.request(url: urlImage) {[weak self] data, response in
             guard let data = data else { return }
             let image = UIImage(data: data)
-            self.mealImageView.image = image
+            self?.mealImageView.image = image
         }
     }
     

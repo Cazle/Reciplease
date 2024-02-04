@@ -35,10 +35,10 @@ final class RecipeViewCell: UITableViewCell {
         
         mealImageView.image = nil
         
-        apiHandler.request(url: urlImage) {data, response in
+        apiHandler.request(url: urlImage) {[weak self] data, response in
             guard let data = data else { return }
             let image = UIImage(data: data)
-            self.mealImageView.image = image
+            self?.mealImageView.image = image
         }
         
         nameLabel.accessibilityLabel = "Name of the recipe"
@@ -89,10 +89,10 @@ final class RecipeViewCell: UITableViewCell {
         
         mealImageView.image = nil
         
-        apiHandler.request(url: urlImage) {data, response in
+        apiHandler.request(url: urlImage) {[weak self] data, response in
             guard let data = data else { return }
             let image = UIImage(data: data)
-            self.mealImageView.image = image
+            self?.mealImageView.image = image
         }
     }
 }
