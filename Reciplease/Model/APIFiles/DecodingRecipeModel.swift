@@ -17,7 +17,12 @@ final class DecodingRecipeModel {
             guard let response = response else {
                 return completion(.failure(APIError.invalidResponse))
             }
-            completion(self.decode(data: data, response: response))
+            DispatchQueue.global(qos: .background).async {
+               let result = self.decode(data: data, response: response)
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+            }
         }
     }
     
